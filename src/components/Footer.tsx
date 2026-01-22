@@ -33,7 +33,7 @@ export default function Footer() {
                 <Phone className="w-5 h-5 shrink-0 text-secondary" />
                 <div className="flex flex-col">
                   <span>Call or WhatsApp:</span>
-                  <a href="tel:+971566181688" className="font-bold hover:text-white transition-colors">+971 50 123 4567</a>
+                  <a href="tel:971566181688" className="font-bold hover:text-white transition-colors">+971566181688</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
