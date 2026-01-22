@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle } from 'lucide-react';
 
 export default function Hero() {
-  const whatsappNumber = "971501234567"; // Replace with your actual number
+  const whatsappNumber = "+971566181688"; // Replace with your actual number
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
 
   return (
