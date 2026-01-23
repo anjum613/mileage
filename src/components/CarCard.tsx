@@ -1,6 +1,5 @@
 'use client';
 
-// CHANGED: Added 'type SVGProps' to the import
 import { useState, type SVGProps } from 'react';
 import Image from 'next/image';
 import { Car } from '@/data/cars';
@@ -85,7 +84,6 @@ export default function CarCard({ car }: { car: Car }) {
               </button>
             </div>
 
-            {/* SCROLLABLE CONTENT AREA */}
             <div className="p-6 overflow-y-auto">
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800 mb-4">
                 <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong>.
@@ -96,13 +94,14 @@ export default function CarCard({ car }: { car: Car }) {
                 <p>1. <strong>Age:</strong> Driver must be 25+ years old.</p>
                 <p>2. <strong>License:</strong> Valid UAE license held for at least 6 months.</p>
                 <p>3. <strong>Insurance:</strong> Valid Police Report is mandatory for ANY damage.</p>
-                <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road). No dune bashing.</p>
+                <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road).</p>
                 <p>5. <strong>Fines:</strong> Customer pays all traffic fines and Salik.</p>
                 <p>6. <strong>Usage:</strong> No racing, rallying, or carrying hazardous materials.</p>
+                {/* ADDED NEW POINT HERE */}
+                <p>7. <strong>No Borders:</strong> Vehicles are <u>strictly prohibited</u> from leaving the UAE.</p>
                 <p className="mt-2 text-xs text-gray-400">Scroll to read full policy...</p>
               </div>
 
-              {/* CUSTOM CHECKBOX AGREEMENT */}
               <div 
                 className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors" 
                 onClick={() => setAgreed(!agreed)}
@@ -116,12 +115,11 @@ export default function CarCard({ car }: { car: Car }) {
               </div>
             </div>
 
-            {/* FOOTER ACTIONS */}
             <div className="p-6 pt-2 flex flex-col gap-3 shrink-0">
               <Button 
                 asChild 
                 size="lg"
-                disabled={!agreed} // DISABLES BUTTON UNTIL CHECKED
+                disabled={!agreed} 
                 className={`w-full font-bold text-white shadow-md transition-all ${agreed ? 'bg-primary hover:bg-primary/90' : 'bg-gray-300 cursor-not-allowed text-gray-500'}`}
               >
                 {agreed ? (
@@ -149,7 +147,6 @@ export default function CarCard({ car }: { car: Car }) {
   );
 }
 
-// CHANGED: Replaced 'any' with 'SVGProps<SVGSVGElement>'
 function CheckIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
