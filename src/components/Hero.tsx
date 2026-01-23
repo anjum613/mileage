@@ -49,7 +49,7 @@ export default function Hero() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-[#228B22] hover:bg-[#1e7b1e] text-white font-bold text-lg h-12 shadow-lg border-none"
+              className="bg-[#2E8B57] hover:bg-[#1e7b1e] text-white font-bold text-lg h-12 shadow-lg border-none"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp Us
