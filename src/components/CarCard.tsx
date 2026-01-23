@@ -97,9 +97,7 @@ export default function CarCard({ car }: { car: Car }) {
                 <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road).</p>
                 <p>5. <strong>Fines:</strong> Customer pays all traffic fines and Salik.</p>
                 <p>6. <strong>Usage:</strong> No racing, rallying, or carrying hazardous materials.</p>
-                {/* ADDED NEW POINT HERE */}
                 <p>7. <strong>No Borders:</strong> Vehicles are <u>strictly prohibited</u> from leaving the UAE.</p>
-                <p className="mt-2 text-xs text-gray-400">Scroll to read full policy...</p>
               </div>
 
               <div 
@@ -110,7 +108,7 @@ export default function CarCard({ car }: { car: Car }) {
                   {agreed && <CheckIcon className="w-3 h-3 text-white" />}
                 </div>
                 <label className="text-sm text-gray-700 leading-tight cursor-pointer select-none">
-                  I confirm I am a UAE Resident, 25+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
+                  I confirm I am a UAE Resident, 23+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
                 </label>
               </div>
             </div>
