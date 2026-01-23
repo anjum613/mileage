@@ -5,11 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle } from 'lucide-react';
 
 export default function Hero() {
-  const whatsappNumber = "+971566181688"; // Replace with your actual number
+  const whatsappNumber = "971566181688"; 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
 
   return (
-    <div className="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-end">
+    // ADDED id="home" here so the header link works
+    <div id="home" className="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-end">
       
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
@@ -17,7 +18,8 @@ export default function Hero() {
           src="/hero-camryy.jpg"
           alt="Economical car rental in Al Ain"
           fill
-          className="object-cover object-bottom brightness-[0.85]"
+          // CHANGED: 'object-center' is more stable when resizing the window than 'object-bottom'
+          className="object-cover object-center brightness-[0.85]"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -33,7 +35,7 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Contact Action Bar (Replaces Booking Form) */}
+      {/* Contact Action Bar */}
       <div className="relative z-20 w-full bg-primary border-t border-primary/20 shadow-2xl">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
           
@@ -43,11 +45,11 @@ export default function Hero() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            {/* WhatsApp Button */}
+            {/* WhatsApp Button - CHANGED COLOR to #228B22 */}
             <Button 
               asChild 
               size="lg" 
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg h-12 shadow-lg"
+              className="bg-[#228B22] hover:bg-[#1e7b1e] text-white font-bold text-lg h-12 shadow-lg border-none"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp Us
