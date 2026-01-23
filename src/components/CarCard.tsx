@@ -91,7 +91,7 @@ export default function CarCard({ car }: { car: Car }) {
 
               <h4 className="font-bold text-gray-900 mb-2">Key Terms:</h4>
               <div className="text-sm text-gray-600 space-y-3 mb-6 border p-3 rounded-md bg-gray-50 h-40 overflow-y-scroll">
-                <p>1. <strong>Age:</strong> Driver must be 25+ years old.</p>
+                <p>1. <strong>Age:</strong> Driver must be 23 years of age or older.</p>
                 <p>2. <strong>License:</strong> Valid UAE license held for at least 6 months.</p>
                 <p>3. <strong>Insurance:</strong> Valid Police Report is mandatory for ANY damage.</p>
                 <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road).</p>
