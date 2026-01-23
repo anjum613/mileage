@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Fuel, Gauge, Users, X } from 'lucide-react'; 
 
 export default function CarCard({ car }: { car: Car }) {
-  const [showTerms, setShowTerms] = useState(false); // State to control the popup
+  const [showTerms, setShowTerms] = useState(false);
 
   const phoneNumber = "971566181688";
   const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). Price: ${car.price} AED/day`;
@@ -61,7 +61,6 @@ export default function CarCard({ car }: { car: Car }) {
         </CardContent>
 
         <CardFooter>
-          {/* Button opens the Terms Popup instead of going directly to WhatsApp */}
           <Button 
             onClick={() => setShowTerms(true)}
             className="w-full font-bold bg-primary hover:bg-primary/90 text-white shadow-lg" 
@@ -72,12 +71,11 @@ export default function CarCard({ car }: { car: Car }) {
         </CardFooter>
       </Card>
 
-      {/* TERMS AND CONDITIONS POPUP MODAL */}
+      {/* TERMS POPUP MODAL */}
       {showTerms && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-200">
             
-            {/* Modal Header */}
             <div className="bg-primary px-6 py-4 flex justify-between items-center">
               <h3 className="text-white font-bold text-lg">Requirements</h3>
               <button onClick={() => setShowTerms(false)} className="text-white/80 hover:text-white">
@@ -85,7 +83,6 @@ export default function CarCard({ car }: { car: Car }) {
               </button>
             </div>
 
-            {/* Modal Body */}
             <div className="p-6 space-y-4">
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800">
                 <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong>.
@@ -111,23 +108,24 @@ export default function CarCard({ car }: { car: Car }) {
               </div>
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-6 pt-2 flex gap-3">
+            {/* CHANGED LAYOUT: Stacked Buttons */}
+            <div className="p-6 pt-2 flex flex-col gap-3">
+              <Button 
+                asChild 
+                size="lg"
+                className="w-full font-bold text-white bg-primary hover:bg-primary/90 shadow-md"
+              >
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  Agree & Proceed to WhatsApp
+                </a>
+              </Button>
+
               <Button 
                 variant="outline" 
                 onClick={() => setShowTerms(false)}
                 className="w-full"
               >
                 Cancel
-              </Button>
-              
-              <Button 
-                asChild 
-                className="w-full font-bold text-white bg-[#228B22] hover:bg-[#1e7b1e]"
-              >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  Proceed to WhatsApp
-                </a>
               </Button>
             </div>
 
