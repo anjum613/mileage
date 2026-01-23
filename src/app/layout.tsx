@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   // Updated for your Brand
-  title: "Mileage Rent A Car | Premium Car Rental in Al Ain",
-  description: "Experience the best car rental service in Al Ain, UAE. Premium fleet, best rates, and instant booking.",
+  title: "Mileage Rent A Car | Car Rental in Al Ain",
+  description: "Experience the best car rental service in Al Ain, UAE. Affordable fleet, best rates, and instant booking.",
 };
 
 export default function RootLayout({

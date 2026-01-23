@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+// CHANGED: Added 'type SVGProps' to the import
+import { useState, type SVGProps } from 'react';
 import Image from 'next/image';
 import { Car } from '@/data/cars';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,9 +11,10 @@ import { Fuel, Gauge, Users, X } from 'lucide-react';
 
 export default function CarCard({ car }: { car: Car }) {
   const [showTerms, setShowTerms] = useState(false);
+  const [agreed, setAgreed] = useState(false); 
 
   const phoneNumber = "971566181688";
-  const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). Price: ${car.price} AED/day`;
+  const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${car.price} AED/day`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -62,7 +64,7 @@ export default function CarCard({ car }: { car: Car }) {
 
         <CardFooter>
           <Button 
-            onClick={() => setShowTerms(true)}
+            onClick={() => { setShowTerms(true); setAgreed(false); }}
             className="w-full font-bold bg-primary hover:bg-primary/90 text-white shadow-lg" 
             size="lg"
           >
@@ -74,50 +76,61 @@ export default function CarCard({ car }: { car: Car }) {
       {/* TERMS POPUP MODAL */}
       {showTerms && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-200">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
             
-            <div className="bg-primary px-6 py-4 flex justify-between items-center">
-              <h3 className="text-white font-bold text-lg">Requirements</h3>
+            <div className="bg-primary px-6 py-4 flex justify-between items-center shrink-0">
+              <h3 className="text-white font-bold text-lg">Rental Requirements</h3>
               <button onClick={() => setShowTerms(false)} className="text-white/80 hover:text-white">
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="p-6 space-y-4">
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800">
+            {/* SCROLLABLE CONTENT AREA */}
+            <div className="p-6 overflow-y-auto">
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800 mb-4">
                 <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong>.
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between border-b pb-2">
-                  <span className="text-gray-500 text-sm">Minimum Age</span>
-                  <span className="font-medium text-gray-900 text-sm">21 Years Old</span>
+              <h4 className="font-bold text-gray-900 mb-2">Key Terms:</h4>
+              <div className="text-sm text-gray-600 space-y-3 mb-6 border p-3 rounded-md bg-gray-50 h-40 overflow-y-scroll">
+                <p>1. <strong>Age:</strong> Driver must be 25+ years old.</p>
+                <p>2. <strong>License:</strong> Valid UAE license held for at least 6 months.</p>
+                <p>3. <strong>Insurance:</strong> Valid Police Report is mandatory for ANY damage.</p>
+                <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road). No dune bashing.</p>
+                <p>5. <strong>Fines:</strong> Customer pays all traffic fines and Salik.</p>
+                <p>6. <strong>Usage:</strong> No racing, rallying, or carrying hazardous materials.</p>
+                <p className="mt-2 text-xs text-gray-400">Scroll to read full policy...</p>
+              </div>
+
+              {/* CUSTOM CHECKBOX AGREEMENT */}
+              <div 
+                className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors" 
+                onClick={() => setAgreed(!agreed)}
+              >
+                <div className={`mt-0.5 w-5 h-5 border-2 rounded flex items-center justify-center transition-colors ${agreed ? 'bg-primary border-primary' : 'border-gray-400 bg-white'}`}>
+                  {agreed && <CheckIcon className="w-3 h-3 text-white" />}
                 </div>
-                <div className="flex justify-between border-b pb-2">
-                  <span className="text-gray-500 text-sm">Driving License</span>
-                  <span className="font-medium text-gray-900 text-sm text-right">Valid UAE License<br/>(Held for 6+ months)</span>
-                </div>
-                <div className="flex justify-between border-b pb-2">
-                  <span className="text-gray-500 text-sm">ID Required</span>
-                  <span className="font-medium text-gray-900 text-sm">Original Emirates ID</span>
-                </div>
-                <div className="flex justify-between pb-2">
-                  <span className="text-gray-500 text-sm">Payment</span>
-                  <span className="font-medium text-gray-900 text-sm">Credit or Debit Card</span>
-                </div>
+                <label className="text-sm text-gray-700 leading-tight cursor-pointer select-none">
+                  I confirm I am a UAE Resident, 25+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
+                </label>
               </div>
             </div>
 
-            {/* CHANGED LAYOUT: Stacked Buttons */}
-            <div className="p-6 pt-2 flex flex-col gap-3">
+            {/* FOOTER ACTIONS */}
+            <div className="p-6 pt-2 flex flex-col gap-3 shrink-0">
               <Button 
                 asChild 
                 size="lg"
-                className="w-full font-bold text-white bg-primary hover:bg-primary/90 shadow-md"
+                disabled={!agreed} // DISABLES BUTTON UNTIL CHECKED
+                className={`w-full font-bold text-white shadow-md transition-all ${agreed ? 'bg-primary hover:bg-primary/90' : 'bg-gray-300 cursor-not-allowed text-gray-500'}`}
               >
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                  Agree & Proceed to WhatsApp
-                </a>
+                {agreed ? (
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    Agree & Proceed to WhatsApp
+                  </a>
+                ) : (
+                  <span className="pointer-events-none">Agree & Proceed to WhatsApp</span>
+                )}
               </Button>
 
               <Button 
@@ -133,5 +146,14 @@ export default function CarCard({ car }: { car: Car }) {
         </div>
       )}
     </>
+  );
+}
+
+// CHANGED: Replaced 'any' with 'SVGProps<SVGSVGElement>'
+function CheckIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
   );
 }

@@ -2,15 +2,13 @@
 
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 
+// THIS LINE MUST SAY 'export default'
 export default function Footer() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Changed layout to 3 columns since Quick Links is gone */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           
-          {/* Brand Column */}
           <div className="space-y-4">
             <h4 className="text-3xl font-bold tracking-tight text-white">
               Mileage <span className="font-light opacity-80">Rent A Car</span>
@@ -21,11 +19,9 @@ export default function Footer() {
             <div className="flex gap-4 pt-2">
               <a href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
               <a href="#" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              {/* Twitter Removed */}
             </div>
           </div>
 
-          {/* Contact Info (Moved to center) */}
           <div>
             <h4 className="text-lg font-bold text-white mb-6">Get in Touch</h4>
             <ul className="space-y-4 text-sm text-primary-foreground/80">
@@ -33,21 +29,28 @@ export default function Footer() {
                 <Phone className="w-5 h-5 shrink-0 text-secondary" />
                 <div className="flex flex-col">
                   <span>Call or WhatsApp:</span>
-                  <a href="tel:971566181688" className="font-bold hover:text-white transition-colors">+971566181688</a>
+                  <a href="tel:+971566181688" className="font-bold hover:text-white transition-colors">
+                    +971 56 618 1688
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 shrink-0 text-secondary" />
-                <span>info@mileagerentals.com</span>
+                <span>mileagealain@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 shrink-0 text-secondary" />
                 <span>Al Ain Industrial Area,<br />Abu Dhabi, UAE</span>
               </li>
+              
+              <li className="pt-4 mt-4 border-t border-white/10">
+                <a href="/terms" className="hover:text-white transition-colors underline decoration-secondary">
+                  Terms & Conditions
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Map / Location Placeholder */}
           <div className="rounded-lg overflow-hidden h-48 bg-white/10 border border-white/20 relative group">
              <div className="absolute inset-0 flex items-center justify-center text-white/50 bg-primary/50 font-medium">
                 <span className="flex items-center gap-2 group-hover:text-white transition-colors">
@@ -58,7 +61,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 text-center text-sm text-primary-foreground/60">
           <p>&copy; {new Date().getFullYear()} Mileage Rent A Car. All rights reserved.</p>
         </div>
