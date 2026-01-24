@@ -1,8 +1,8 @@
 'use client';
 
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import Link from 'next/link'; // IMPORT LINK
 
-// THIS LINE MUST SAY 'export default'
 export default function Footer() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground pt-20 pb-10">
@@ -36,17 +36,18 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 shrink-0 text-secondary" />
-                <span>mileagealain@gmail.com</span>
+                <span>info@mileagerentals.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 shrink-0 text-secondary" />
                 <span>Al Ain Industrial Area,<br />Abu Dhabi, UAE</span>
               </li>
               
+              {/* FIXED: Use Link for internal page */}
               <li className="pt-4 mt-4 border-t border-white/10">
-                <a href="/terms" className="hover:text-white transition-colors underline decoration-secondary">
+                <Link href="/terms" className="hover:text-white transition-colors underline decoration-secondary">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

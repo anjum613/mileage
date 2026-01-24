@@ -2,6 +2,9 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Link from 'next/link'; // IMPORT LINK
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 export default function TermsPage() {
   return (
@@ -9,6 +12,16 @@ export default function TermsPage() {
       <Header />
       
       <div className="max-w-4xl mx-auto px-6 py-24 md:py-32">
+        
+        {/* FIXED: Use Link for internal navigation */}
+        <div className="mb-8">
+          <Button asChild variant="outline" className="gap-2">
+            <Link href="/">
+              <ArrowLeft className="w-4 h-4" /> Back to Home
+            </Link>
+          </Button>
+        </div>
+
         <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8">Terms & Conditions</h1>
         
         <div className="bg-white p-6 md:p-10 rounded-xl shadow-sm space-y-8 text-gray-700">
@@ -25,7 +38,6 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">2. Usage Restrictions</h2>
             <ul className="list-disc pl-5 space-y-2">
-              {/* UPDATED POINT BELOW */}
               <li><strong>Geographical Limits:</strong> Vehicles are strictly prohibited from leaving the United Arab Emirates. Driving to Oman, Saudi Arabia, or any other country is not allowed under any circumstances.</li>
               <li><strong>Off-Roading:</strong> 4WD vehicles are allowed off-road up to a maximum of 1km from a paved road. Dune bashing, racing, or competitive events are strictly prohibited.</li>
               <li><strong>Prohibited Uses:</strong> Vehicles must not be used for racing, rallies, speed trials, or carrying hazardous materials.</li>
