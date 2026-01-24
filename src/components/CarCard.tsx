@@ -78,7 +78,7 @@ export default function CarCard({ car }: { car: Car }) {
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
             
             <div className="bg-primary px-6 py-4 flex justify-between items-center shrink-0">
-              <h3 className="text-white font-bold text-lg">Rental Requirements</h3>
+              <h3 className="text-white font-bold text-lg">Key Rental Terms</h3>
               <button onClick={() => setShowTerms(false)} className="text-white/80 hover:text-white">
                 <X className="w-6 h-6" />
               </button>
@@ -86,18 +86,18 @@ export default function CarCard({ car }: { car: Car }) {
 
             <div className="p-6 overflow-y-auto">
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800 mb-4">
-                <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong>.
+                <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong> (Emirates ID Required).
               </div>
 
-              <h4 className="font-bold text-gray-900 mb-2">Key Terms:</h4>
-              <div className="text-sm text-gray-600 space-y-3 mb-6 border p-3 rounded-md bg-gray-50 h-40 overflow-y-scroll">
-                <p>1. <strong>Age:</strong> Driver must be 23 years of age or older.</p>
-                <p>2. <strong>License:</strong> Valid UAE license held for at least 6 months.</p>
-                <p>3. <strong>Insurance:</strong> Valid Police Report is mandatory for ANY damage.</p>
-                <p>4. <strong>Off-Road:</strong> Strictly prohibited (except 4WD up to 1km off-road).</p>
-                <p>5. <strong>Fines:</strong> Customer pays all traffic fines and Salik.</p>
-                <p>6. <strong>Usage:</strong> No racing, rallying, or carrying hazardous materials.</p>
-                <p>7. <strong>No Borders:</strong> Vehicles are <u>strictly prohibited</u> from leaving the UAE.</p>
+              <h4 className="font-bold text-gray-900 mb-2">Important Rules:</h4>
+              <div className="text-sm text-gray-600 space-y-3 mb-6 border p-3 rounded-md bg-gray-50 h-48 overflow-y-scroll">
+                <p>1. <strong>Deposit:</strong> AED 1,500 security deposit (Refundable after 15 days).</p>
+                <p>2. <strong>Mileage:</strong> 400 km limit per day. (Extra: AED 1/km).</p>
+                <p>3. <strong>Insurance Excess:</strong> AED 1,500 for standard cars if accident is your fault.</p>
+                <p>4. <strong>Geographical Limits:</strong> UAE Use Only. No border crossing.</p>
+                <p>5. <strong>Driver:</strong> Only the contract holder is allowed to drive.</p>
+                <p>6. <strong>Tolls & Fines:</strong> Customer pays all Salik (AED 4) and Traffic Fines.</p>
+                <p>7. <strong>Fuel:</strong> Return with same fuel level.</p>
               </div>
 
               <div 
@@ -108,7 +108,7 @@ export default function CarCard({ car }: { car: Car }) {
                   {agreed && <CheckIcon className="w-3 h-3 text-white" />}
                 </div>
                 <label className="text-sm text-gray-700 leading-tight cursor-pointer select-none">
-                  I confirm I am a UAE Resident, 23+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
+                  I confirm I am a UAE Resident, 25+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
                 </label>
               </div>
             </div>

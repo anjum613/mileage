@@ -2,7 +2,7 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Link from 'next/link'; // IMPORT LINK
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
@@ -13,7 +13,6 @@ export default function TermsPage() {
       
       <div className="max-w-4xl mx-auto px-6 py-24 md:py-32">
         
-        {/* FIXED: Use Link for internal navigation */}
         <div className="mb-8">
           <Button asChild variant="outline" className="gap-2">
             <Link href="/">
@@ -24,38 +23,60 @@ export default function TermsPage() {
 
         <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8">Terms & Conditions</h1>
         
-        <div className="bg-white p-6 md:p-10 rounded-xl shadow-sm space-y-8 text-gray-700">
+        <div className="bg-white p-6 md:p-10 rounded-xl shadow-sm space-y-10 text-gray-700">
           
+          {/* SECTION 1: DRIVING & USAGE */}
           <section>
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">1. Driver Requirements</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li><strong>Minimum Age:</strong> Drivers must be between 23 and 65 years old.</li>
-              <li><strong>License:</strong> A valid UAE driving license held for at least 6 months is required.</li>
-              <li><strong>Documents:</strong> Original Emirates ID (for residents) or Passport with Visa Entry Stamp (for tourists) is mandatory.</li>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 border-b pb-2">1. Driving & Usage Limits</h2>
+            <ul className="list-disc pl-5 space-y-3">
+              <li><strong>Mileage Limit:</strong> The allowed mileage is <strong>400 km per 24 hours</strong>. Excess mileage is charged at <strong>AED 1 per km</strong>. (Monthly limit: 7,500 km).</li>
+              <li><strong>Driver Restriction:</strong> The vehicle must <u>only</u> be driven by the hirer. Giving the car to anyone else is strictly prohibited.</li>
+              <li><strong>Geographical Limits:</strong> Vehicles are strictly prohibited from leaving the UAE. Insurance is invalid outside UAE borders.</li>
+              <li><strong>Fuel Policy:</strong> The vehicle must be returned with the same fuel level as when it was picked up.</li>
+              <li><strong>Traffic Fines:</strong> The customer is responsible for clearing all traffic fines and lock fines incurred during the rental period.</li>
+              <li><strong>Tolls (Salik/Darb):</strong> The renter is responsible for all toll charges (AED 4 per crossing) plus service charges.</li>
             </ul>
           </section>
 
+          {/* SECTION 2: ACCIDENTS & INSURANCE */}
           <section>
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">2. Usage Restrictions</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li><strong>Geographical Limits:</strong> Vehicles are strictly prohibited from leaving the United Arab Emirates. Driving to Oman, Saudi Arabia, or any other country is not allowed under any circumstances.</li>
-              <li><strong>Off-Roading:</strong> 4WD vehicles are allowed off-road up to a maximum of 1km from a paved road. Dune bashing, racing, or competitive events are strictly prohibited.</li>
-              <li><strong>Prohibited Uses:</strong> Vehicles must not be used for racing, rallies, speed trials, or carrying hazardous materials.</li>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 border-b pb-2">2. Accidents & Insurance</h2>
+            <ul className="list-disc pl-5 space-y-3">
+              <li><strong>Reporting:</strong> In case of accident or technical trouble, the hirer <strong>must inform the rent office immediately</strong>. Do not repair the vehicle without office permission.</li>
+              <li><strong>Police Report:</strong> A valid Police Report is mandatory for any damage. Without it, the hirer pays full repair costs.</li>
+              <li><strong>Insurance Excess:</strong> If the accident is the hirer&apos;s fault, an excess fee applies:
+                <ul className="list-circle pl-5 mt-1 text-sm text-gray-600">
+                  <li><strong>Standard Cars:</strong> AED 1,500</li>
+                  <li><strong>Luxury Cars:</strong> AED 2,500</li>
+                  <li><strong>Natural Disasters (Rain/Flood):</strong> Additional 5% excess (Min. AED 2,000).</li>
+                </ul>
+              </li>
+              <li><strong>Total Loss:</strong> If the vehicle is cancelled by insurance due to an accident, the renter is responsible to pay <strong>20% of the vehicle value</strong>.</li>
+              <li><strong>DUI Clause:</strong> If an accident occurs under the influence of alcohol or substances, the driver pays for <strong>full damage repairs</strong> plus rental charges during the repair period.</li>
+              <li><strong>Repair Period:</strong> The tenant bears daily rental charges for every day the car is under repair due to negligence or accident.</li>
             </ul>
           </section>
 
+          {/* SECTION 3: PAYMENTS & LEGAL */}
           <section>
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">3. Insurance & Accidents</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li><strong>Police Report:</strong> In case of any accident or damage, a valid Police Report is mandatory. Without it, the customer is liable for all repair costs.</li>
-              <li><strong>Excess/Deductible:</strong> If the accident is the driver&apos;s fault, an insurance excess fee applies (standard AED 1,000 for saloons, higher for SUVs/Sports cars).</li>
-              <li><strong>Sports/Coupe Cars:</strong> Higher excess fees (20% additional) apply to high-performance vehicles.</li>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 border-b pb-2">3. Payments, Deposits & Legal</h2>
+            <ul className="list-disc pl-5 space-y-3">
+              <li><strong>Security Deposit:</strong> An amount of <strong>AED 1,500</strong> is reserved to cover potential violations. This is refundable after <strong>15 days</strong> from the return date.</li>
+              <li><strong>Late Return:</strong> Delay is charged at AED 10 per hour. Extension requires prior office approval.</li>
+              <li><strong>Payment Default:</strong> If rental payment is delayed by 10 days, the office has the right to stop the car remotely.</li>
+              <li><strong>Impoundment:</strong> The office is not responsible if the car is impounded by police while in the renter&apos;s custody.</li>
+              <li><strong>Legal Costs:</strong> In case of a lawsuit to recover funds, the hirer pays all lawyer fees and court expenses.</li>
             </ul>
           </section>
 
+          {/* SECTION 4: OFFICE TIMINGS */}
           <section>
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">4. Payments & Deposits</h2>
-            <p>A security deposit is required via Credit Card. Rental fees must be paid in advance. Traffic fines and Salik (toll) charges are the responsibility of the renter.</p>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 border-b pb-2">4. Return & Office Hours</h2>
+            <p className="mb-2"><strong>Working Hours:</strong> 8:00 AM - 1:00 PM & 4:30 PM - 9:00 PM.</p>
+            <ul className="list-disc pl-5 space-y-3">
+              <li><strong>Public Holidays:</strong> The office remains closed. Vehicles due on a holiday must be returned the day before, or rent will be charged until the holiday ends.</li>
+              <li><strong>Return Time:</strong> Hirer must bring the car at least one hour before office closing time.</li>
+            </ul>
           </section>
 
         </div>
