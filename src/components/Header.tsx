@@ -34,7 +34,7 @@ export default function Header() {
         >
           <div className="relative h-12 w-12 md:h-14 md:w-14 shrink-0">
              <Image 
-               src="/logo-final.png" 
+               src="/logo-final.jpg" 
                alt="Mileage Logo" 
                fill 
                className="object-contain drop-shadow-md"

@@ -36,11 +36,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 shrink-0 text-secondary" />
-                <span>info@mileagerentals.com</span>
+                <span>mileagealain@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 shrink-0 text-secondary" />
-                <span>Al Ain Industrial Area,<br />Abu Dhabi, UAE</span>
+                <span>Al Ain,<br />Abu Dhabi, UAE</span>
               </li>
               
               {/* FIXED: Use Link for internal page */}
