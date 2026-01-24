@@ -18,7 +18,6 @@ export default function TermsPage() {
             <ul className="list-disc pl-5 space-y-2">
               <li><strong>Minimum Age:</strong> Drivers must be between 23 and 65 years old.</li>
               <li><strong>License:</strong> A valid UAE driving license held for at least 6 months is required.</li>
-              <li><strong>International Drivers:</strong> Tourists with European/American licenses may drive subject to RTA regulations.</li>
               <li><strong>Documents:</strong> Original Emirates ID (for residents) or Passport with Visa Entry Stamp (for tourists) is mandatory.</li>
             </ul>
           </section>
