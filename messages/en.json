@@ -1,0 +1,39 @@
+{
+    "HomePage": {
+        "title": "Mileage Rent A Car | Car Rental in Al Ain",
+        "description": "Experience the best car rental service in Al Ain, UAE. Affordable fleet, best rates, and instant booking."
+    },
+    "Navigation": {
+        "home": "Home",
+        "fleet": "Fleet",
+        "about": "About Us",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "title": "AFFORDABLE RENTALS IN AL\u00A0AIN",
+        "subtitle": "Reliable cars at unbeatable prices. No hidden fees, just great value.",
+        "book_title": "Book Your Ride Today",
+        "book_subtitle": "Simple booking via WhatsApp or Phone call.",
+        "whatsapp": "WhatsApp Us",
+        "call": "Call Now"
+    },
+    "Footer": {
+        "rights": "All rights reserved."
+    },
+    "Fleet": {
+        "title": "Our Fleet",
+        "subtitle": "Reliable, economical, and ready for the road. Choose the perfect car for your daily needs."
+    },
+    "WhyUs": {
+        "title": "Why Choose Mileage?",
+        "subtitle": "We provide the most practical and economical car rental solutions in Al Ain.",
+        "budget_title": "Budget Friendly",
+        "budget_desc": "The best rates in Al Ain. We focus on economical options that save you money.",
+        "maintained_title": "Well Maintained",
+        "maintained_desc": "Reliability is key. Our cars are regularly serviced to ensure a safe and smooth drive.",
+        "hidden_title": "No Hidden Costs",
+        "hidden_desc": "What you see is what you pay. Transparent pricing with no surprise fees.",
+        "easy_title": "Easy Process",
+        "easy_desc": "Skip the paperwork. Just message us on WhatsApp and get driving in minutes."
+    }
+}

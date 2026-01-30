@@ -2,20 +2,20 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // IMPORT THIS
+import { Link, usePathname } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // GET CURRENT PAGE
-  const phoneNumber = "971566181688"; 
+  const phoneNumber = "971566181688";
 
   // Function to handle Logo click
   const handleLogoClick = () => {
     setIsOpen(false); // Close mobile menu if open
-    
+
     // If we are already on the home page, force scroll to top
     if (pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,21 +25,21 @@ export default function Header() {
   return (
     <header className="fixed w-full top-0 z-50 bg-primary text-primary-foreground shadow-lg border-b border-primary/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-        
+
         {/* ADDED onClick={handleLogoClick} HERE */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           onClick={handleLogoClick}
           className="flex items-center gap-3 hover:opacity-90 transition-opacity cursor-pointer"
         >
           <div className="relative h-12 w-12 md:h-14 md:w-14 shrink-0">
-             <Image 
-               src="/logo-final.jpg" 
-               alt="Mileage Logo" 
-               fill 
-               className="object-contain drop-shadow-md"
-               priority
-             />
+            <Image
+              src="/logo-final.jpg"
+              alt="Mileage Logo"
+              fill
+              className="object-contain drop-shadow-md"
+              priority
+            />
           </div>
           <span className="text-xl md:text-2xl font-bold tracking-tight">
             Mileage <span className="font-light opacity-90 text-sm md:text-lg">Rent A Car</span>
@@ -52,20 +52,25 @@ export default function Header() {
           <Link href="/#why-us" className="text-sm font-medium hover:text-secondary transition-colors">About Us</Link>
           <Link href="/terms" className="text-sm font-medium hover:text-secondary transition-colors">T&C</Link>
           <Link href="/#contact" className="text-sm font-medium hover:text-secondary transition-colors">Contact</Link>
-          
+
           <Button asChild variant="secondary" className="font-bold cursor-pointer">
             <a href={`tel:+${phoneNumber}`} className="flex items-center gap-2">
               <Phone className="w-4 h-4" /> Call Us
             </a>
           </Button>
+
+          <LanguageSwitcher />
         </div>
 
-        <button 
-          className="md:hidden p-2 text-primary-foreground hover:bg-primary/90 rounded-md"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <button
+            className="p-2 text-primary-foreground hover:bg-primary/90 rounded-md"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {isOpen && (

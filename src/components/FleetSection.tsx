@@ -1,17 +1,20 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { cars } from '@/data/cars';
 import CarCard from '@/components/CarCard';
 
 export default function FleetSection() {
+  const t = useTranslations('Fleet');
+
   return (
     <section id="fleet" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-4">Our Fleet</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">{t('title')}</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Reliable, economical, and ready for the road. Choose the perfect car for your daily needs.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -25,7 +28,7 @@ export default function FleetSection() {
             <CarCard key={car.id} car={car} />
           ))}
         </div>
-        
+
       </div>
     </section>
   );

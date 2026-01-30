@@ -1,28 +1,31 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Wallet, Settings, ShieldCheck, ThumbsUp } from 'lucide-react';
 
 export default function WhyUsSection() {
+  const t = useTranslations('WhyUs');
+
   const benefits = [
-    { 
+    {
       icon: <Wallet className="w-8 h-8 text-secondary" />,
-      title: 'Budget Friendly', 
-      description: 'The best rates in Al Ain. We focus on economical options that save you money.' 
+      title: t('budget_title'),
+      description: t('budget_desc')
     },
-    { 
+    {
       icon: <Settings className="w-8 h-8 text-secondary" />,
-      title: 'Well Maintained', 
-      description: 'Reliability is key. Our cars are regularly serviced to ensure a safe and smooth drive.' 
+      title: t('maintained_title'),
+      description: t('maintained_desc')
     },
-    { 
+    {
       icon: <ShieldCheck className="w-8 h-8 text-secondary" />,
-      title: 'No Hidden Costs', 
-      description: 'What you see is what you pay. Transparent pricing with no surprise fees.' 
+      title: t('hidden_title'),
+      description: t('hidden_desc')
     },
-    { 
+    {
       icon: <ThumbsUp className="w-8 h-8 text-secondary" />,
-      title: 'Easy Process', 
-      description: 'Skip the paperwork. Just message us on WhatsApp and get driving in minutes.' 
+      title: t('easy_title'),
+      description: t('easy_desc')
     },
   ];
 
@@ -30,9 +33,9 @@ export default function WhyUsSection() {
     <section id="why-us" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-primary mb-4">Why Choose Mileage?</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">{t('title')}</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We provide the most practical and economical car rental solutions in Al Ain.
+            {t('subtitle')}
           </p>
         </div>
 
