@@ -58,7 +58,7 @@ export const {
     },
     session: {
         strategy: "jwt",
-        maxAge: 30 * 24 * 60 * 60, // 30 days
+        maxAge: 30 * 24 * 60 * 60, // 30 days - this controls cookie expiration
         updateAge: 7 * 24 * 60 * 60, // Refresh session every 7 days
     },
     secret: process.env.NEXTAUTH_SECRET,
