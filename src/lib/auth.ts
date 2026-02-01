@@ -9,12 +9,15 @@ const loginSchema = z.object({
     password: z.string().min(6),
 });
 
+import { authConfig } from "@/auth.config";
+
 export const {
     handlers: { GET, POST },
     auth,
     signIn,
     signOut,
 } = NextAuth({
+    ...authConfig,
     providers: [
         CredentialsProvider({
             credentials: {
@@ -45,10 +48,9 @@ export const {
             },
         }),
     ],
-    pages: {
-        signIn: "/admin",
-    },
+    // Extend callbacks if needed (session and jwt are not in authConfig)
     callbacks: {
+        ...authConfig.callbacks,
         async session({ session, token }) {
             return session;
         },
