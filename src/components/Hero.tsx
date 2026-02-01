@@ -27,7 +27,7 @@ export default function Hero() {
           className="object-cover object-center brightness-[0.85]"
           priority
         />
-        <div className="absolute inset-0 bg-white/20" />
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
 
