@@ -20,6 +20,8 @@ export const authConfig = {
                 if (isLoggedIn) return Response.redirect(new URL('/admin/dashboard', nextUrl));
                 return true;
             }
+
+            // Allow all other routes (public)
             return true;
         },
     },
