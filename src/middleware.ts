@@ -13,5 +13,5 @@ export default NextAuth(authConfig).auth((req) => {
 
 export const config = {
     // Matcher from auth.config + intl requirements
-    matcher: ['/', '/(ar|en)/:path*', '/((?!api|_next/static|_next/image|favicon.ico).*)'],
+    matcher: ['/', '/(ar|en)/:path*', '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)).*)'],
 };
