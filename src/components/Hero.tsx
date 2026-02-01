@@ -15,7 +15,7 @@ export default function Hero() {
     // Restoring original height and layout
     // 1. Changed h-[85vh] to h-[55vh] for mobile (md:h-[85vh] for desktop)
     // 2. Changed min-h-[600px] to min-h-[400px] for mobile (md:min-h-[600px] for desktop)
-    <section id="home" className="relative w-full h-[55vh] md:h-[85vh] min-h-[400px] md:min-h-[600px] flex flex-col justify-end">
+    <section id="home" className="relative w-full h-[65vh] md:h-screen min-h-[500px] flex flex-col justify-end">
 
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
@@ -27,11 +27,12 @@ export default function Hero() {
           className="object-cover object-center brightness-[0.85]"
           priority
         />
+        <div className="absolute inset-0 bg-white/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
 
       {/* Hero Content - Restoring specific styling and alignment */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 pb-8 md:pb-12">
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 pb-40 md:pb-80">
         <h1 className="text-3xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg leading-tight">
           {t.rich('title', {
             br: () => <br />
