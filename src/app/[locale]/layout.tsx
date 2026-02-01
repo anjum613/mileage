@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
-// Inter is a modern, clean sans-serif font perfect for web applications
-const inter = Inter({
+// Using Geist is perfect for a sleek, modern UI
+const geistSans = Geist({
+    variable: "--font-geist-sans",
     subsets: ["latin"],
-    variable: "--font-inter",
-    display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +41,7 @@ export default async function RootLayout({
     return (
         <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
             <body
-                className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
             >
                 <NextIntlClientProvider messages={messages}>
                     {children}
