@@ -72,7 +72,7 @@ export default function Header() {
             </a>
           </Button>
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="p-2 hover:bg-primary-foreground/10 rounded-full transition-colors" title="Account">
@@ -96,10 +96,6 @@ export default function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : (
-            <NextLink href="/en/admin" className="p-2 hover:bg-primary-foreground/10 rounded-full transition-colors" title={t('admin')}>
-              <User className="w-5 h-5" />
-            </NextLink>
           )}
 
           <LanguageSwitcher />
@@ -108,7 +104,7 @@ export default function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <LanguageSwitcher />
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="p-2 hover:bg-primary-foreground/10 rounded-full transition-colors" title="Account">
@@ -132,10 +128,6 @@ export default function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : (
-            <NextLink href="/en/admin" className="p-2 hover:bg-primary-foreground/10 rounded-full transition-colors" title={t('admin')}>
-              <User className="w-5 h-5" />
-            </NextLink>
           )}
 
           <button
@@ -155,7 +147,7 @@ export default function Header() {
           <Link href="/terms" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('terms')}</Link>
           <Link href="/#contact" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('contact')}</Link>
 
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <>
               <NextLink href="/en/admin/dashboard" className="flex items-center gap-2 py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>
                 <LayoutDashboard className="w-4 h-4" />
@@ -172,11 +164,6 @@ export default function Header() {
                 Sign Out
               </button>
             </>
-          ) : (
-            <NextLink href="/en/admin" className="flex items-center gap-2 py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>
-              <User className="w-4 h-4" />
-              {t('admin')}
-            </NextLink>
           )}
         </div>
       )}
