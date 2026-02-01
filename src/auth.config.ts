@@ -7,8 +7,11 @@ export const authConfig = {
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith('/admin/dashboard') || nextUrl.pathname.startsWith('/admin/cars');
-            const isLoginPage = nextUrl.pathname === '/admin';
+            // Helper to strip locale from path for checking
+            const pathname = nextUrl.pathname.replace(/^\/(en|ar)/, '');
+
+            const isOnDashboard = pathname.startsWith('/admin/dashboard') || pathname.startsWith('/admin/cars');
+            const isLoginPage = pathname === '/admin';
 
             if (isOnDashboard) {
                 if (isLoggedIn) return true;
