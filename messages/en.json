@@ -7,7 +7,17 @@
         "home": "Home",
         "fleet": "Fleet",
         "about": "About Us",
-        "contact": "Contact"
+        "contact": "Contact",
+        "terms": "T&C",
+        "call": "Call Us",
+        "legal": "Legal",
+        "quick_links": "Quick Links",
+        "rights": "All rights reserved.",
+        "brand_subtitle": "Rent A Car",
+        "privacy": "Privacy Policy",
+        "cookies": "Cookie Policy",
+        "admin": "Admin Login",
+        "address": "Al Ain, UAE"
     },
     "Hero": {
         "title": "AFFORDABLE RENTALS IN AL\u00A0AIN",
@@ -35,5 +45,93 @@
         "hidden_desc": "What you see is what you pay. Transparent pricing with no surprise fees.",
         "easy_title": "Easy Process",
         "easy_desc": "Skip the paperwork. Just message us on WhatsApp and get driving in minutes."
+    },
+    "Legal": {
+        "Terms": {
+            "title": "Terms and Conditions",
+            "updated": "Last Updated",
+            "sections": {
+                "one": {
+                    "title": "1. Driver Requirements",
+                    "list": {
+                        "age": "Minimum Age: Drivers must be between 23 and 65 years old.",
+                        "license": "License: A valid UAE driving license held for at least 6 months is required.",
+                        "international": "International Drivers: Tourists with European/American licenses may drive subject to RTA regulations.",
+                        "documents": "Documents: Original Emirates ID (for residents) or Passport with Visa Entry Stamp (for tourists) is mandatory."
+                    }
+                },
+                "two": {
+                    "title": "2. Usage Restrictions",
+                    "list": {
+                        "geo": "Geographical Limits: Vehicles are strictly prohibited from leaving the United Arab Emirates. Driving to Oman, Saudi Arabia, or any other country is not allowed under any circumstances.",
+                        "offroad": "Off-Roading: 4WD vehicles are allowed off-road up to a maximum of 1km from a paved road. Dune bashing, racing, or competitive events are strictly prohibited.",
+                        "prohibited": "Prohibited Uses: Vehicles must not be used for racing, rallies, speed trials, or carrying hazardous materials."
+                    }
+                },
+                "three": {
+                    "title": "3. Insurance & Accidents",
+                    "list": {
+                        "police": "Police Report: In case of any accident or damage, a valid Police Report is mandatory. Without it, the customer is liable for all repair costs.",
+                        "excess": "Excess/Deductible: If the accident is the driver's fault, an insurance excess fee applies (standard AED 1,000 for saloons, higher for SUVs/Sports cars).",
+                        "sports": "Sports/Coupe Cars: Higher excess fees (20% additional) apply to high-performance vehicles."
+                    }
+                },
+                "four": {
+                    "title": "4. Payments & Deposits",
+                    "content": "A security deposit is required via Credit Card. Rental fees must be paid in advance. Traffic fines and Salik (toll) charges are the responsibility of the renter."
+                }
+            }
+        },
+        "Privacy": {
+            "title": "Privacy Policy",
+            "effective": "Effective Date",
+            "intro": "Mileage Rent A Car (\"we\", \"us\", \"our\") takes your privacy seriously. This policy explains how we collect, use, and protect your personal information when you use our services.",
+            "one": {
+                "title": "1. Information We Collect",
+                "content": "We collect information necessary to provide car rental services, including:",
+                "list": {
+                    "one": "Personal details (Name, Email, Phone Number, Date of Birth).",
+                    "two": "Identification documents (Emirates ID, Passport, Driving License copies).",
+                    "three": "Payment information (Credit Card details for deposits)."
+                }
+            },
+            "two": {
+                "title": "2. How We Use Your Information",
+                "list": {
+                    "one": "To process vehicle bookings and rental agreements.",
+                    "two": "To verify your identity and driving eligibility.",
+                    "three": "To process security deposits and traffic fines.",
+                    "four": "To communicate with you regarding your booking."
+                }
+            },
+            "three": {
+                "title": "3. Data Security",
+                "content": "We implement strict security measures to protect your personal data. Digital copies of IDs and licenses are stored securely and are only accessible by authorized staff. We do not sell your data to third parties."
+            },
+            "four": {
+                "title": "4. Cookies",
+                "content": "Our website uses cookies to improve user experience. You can view our Cookie Policy for more details."
+            }
+        },
+        "Cookies": {
+            "title": "Cookie Policy",
+            "intro": "Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site.",
+            "what": {
+                "title": "What are cookies?",
+                "content": "A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. Cookies contain information that is transferred to your computer's hard drive."
+            },
+            "types": {
+                "title": "Types of cookies we use",
+                "list": {
+                    "essential": "Essential cookies: These are required for the operation of our website (e.g., enabling you to log into secure areas).",
+                    "analytical": "Analytical/Performance cookies: They allow us to recognize and count the number of visitors and see how visitors move around our website.",
+                    "functionality": "Functionality cookies: These are used to recognize you when you return to our website (e.g., remembering your language preference)."
+                }
+            },
+            "managing": {
+                "title": "Managing Cookies",
+                "content": "You can block cookies by activating the setting on your browser that allows you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies) you may not be able to access all or parts of our site."
+            }
+        }
     }
 }

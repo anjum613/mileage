@@ -2,18 +2,19 @@
 
 import { useState, type SVGProps } from 'react';
 import Image from 'next/image';
-import { Car } from '@/data/cars';
+import type { Car } from '@prisma/client';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Fuel, Gauge, Users, X } from 'lucide-react'; 
+import { Fuel, Gauge, Users, X } from 'lucide-react';
 
 export default function CarCard({ car }: { car: Car }) {
   const [showTerms, setShowTerms] = useState(false);
-  const [agreed, setAgreed] = useState(false); 
+  const [agreed, setAgreed] = useState(false);
 
   const phoneNumber = "971566181688";
-  const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${car.price} AED/day`;
+  const finalPrice = (car.discountPrice && car.discountPrice > 0) ? car.discountPrice : car.price;
+  const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${finalPrice} AED/day`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -29,6 +30,11 @@ export default function CarCard({ car }: { car: Car }) {
           <Badge variant="secondary" className="absolute top-4 right-4 font-bold shadow-sm bg-white/90 text-black">
             {car.year}
           </Badge>
+          {car.offerTag && (
+            <Badge className="absolute top-4 left-4 font-bold shadow-md bg-red-600 text-white animate-bounce-slow border-2 border-white">
+              {car.offerTag}
+            </Badge>
+          )}
         </div>
 
         <CardHeader className="pb-2">
@@ -38,7 +44,14 @@ export default function CarCard({ car }: { car: Car }) {
               <CardTitle className="text-xl font-bold text-primary mt-1">{car.name}</CardTitle>
             </div>
             <div className="text-right">
-              <span className="block text-2xl font-bold text-primary">{car.price}</span>
+              {car.discountPrice && car.discountPrice > 0 ? (
+                <>
+                  <span className="block text-sm text-muted-foreground line-through decoration-red-500/50">AED {car.price}</span>
+                  <span className="block text-2xl font-bold text-red-600 animate-pulse">{car.discountPrice}</span>
+                </>
+              ) : (
+                <span className="block text-2xl font-bold text-primary">{car.price}</span>
+              )}
               <span className="text-xs text-muted-foreground font-medium">AED / Day</span>
             </div>
           </div>
@@ -62,9 +75,9 @@ export default function CarCard({ car }: { car: Car }) {
         </CardContent>
 
         <CardFooter>
-          <Button 
+          <Button
             onClick={() => { setShowTerms(true); setAgreed(false); }}
-            className="w-full font-bold bg-primary hover:bg-primary/90 text-white shadow-lg" 
+            className="w-full font-bold bg-primary hover:bg-primary/90 text-white shadow-lg"
             size="lg"
           >
             Book via WhatsApp
@@ -76,7 +89,7 @@ export default function CarCard({ car }: { car: Car }) {
       {showTerms && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
-            
+
             <div className="bg-primary px-6 py-4 flex justify-between items-center shrink-0">
               <h3 className="text-white font-bold text-lg">Key Rental Terms</h3>
               <button onClick={() => setShowTerms(false)} className="text-white/80 hover:text-white">
@@ -100,8 +113,8 @@ export default function CarCard({ car }: { car: Car }) {
                 <p>7. <strong>Fuel:</strong> Return with same fuel level.</p>
               </div>
 
-              <div 
-                className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors" 
+              <div
+                className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
                 onClick={() => setAgreed(!agreed)}
               >
                 <div className={`mt-0.5 w-5 h-5 border-2 rounded flex items-center justify-center transition-colors ${agreed ? 'bg-primary border-primary' : 'border-gray-400 bg-white'}`}>
@@ -114,10 +127,10 @@ export default function CarCard({ car }: { car: Car }) {
             </div>
 
             <div className="p-6 pt-2 flex flex-col gap-3 shrink-0">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
-                disabled={!agreed} 
+                disabled={!agreed}
                 className={`w-full font-bold text-white shadow-md transition-all ${agreed ? 'bg-primary hover:bg-primary/90' : 'bg-gray-300 cursor-not-allowed text-gray-500'}`}
               >
                 {agreed ? (
@@ -129,8 +142,8 @@ export default function CarCard({ car }: { car: Car }) {
                 )}
               </Button>
 
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setShowTerms(false)}
                 className="w-full"
               >

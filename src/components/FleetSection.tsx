@@ -1,10 +1,14 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { cars } from '@/data/cars';
 import CarCard from '@/components/CarCard';
+import type { Car } from '@prisma/client';
 
-export default function FleetSection() {
+interface FleetSectionProps {
+  cars: Car[];
+}
+
+export default function FleetSection({ cars }: FleetSectionProps) {
   const t = useTranslations('Fleet');
 
   return (

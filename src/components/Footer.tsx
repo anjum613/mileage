@@ -1,10 +1,11 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import NextLink from 'next/link';
 
 export default function Footer() {
-  const t = useTranslations('Footer');
+  const t = useTranslations('Navigation');
 
   return (
     <footer className="bg-primary text-primary-foreground py-12 md:py-16">
@@ -13,7 +14,7 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="md:col-span-1 space-y-4">
-            <h3 className="text-xl font-bold tracking-tight">Mileage <span className="font-light text-sm">Rent A Car</span></h3>
+            <h3 className="text-xl font-bold tracking-tight">Mileage <span className="font-light text-sm">{t('brand_subtitle')}</span></h3>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
               {t('rights')}
             </p>
@@ -21,30 +22,31 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t('quick_links')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/#fleet" className="hover:text-white transition-colors">Fleet</Link></li>
-              <li><Link href="/#why-us" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/" className="hover:text-white transition-colors">{t('home')}</Link></li>
+              <li><Link href="/#fleet" className="hover:text-white transition-colors">{t('fleet')}</Link></li>
+              <li><Link href="/#why-us" className="hover:text-white transition-colors">{t('about')}</Link></li>
+              <li><Link href="/#contact" className="hover:text-white transition-colors">{t('contact')}</Link></li>
+              <li><NextLink href="/admin" className="hover:text-white transition-colors opacity-70">{t('admin')}</NextLink></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Legal</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t('legal')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link></li>
+              <li><Link href="/cookies" className="hover:text-white transition-colors">{t('cookies')}</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4 text-secondary">Contact</h4>
+            <h4 className="font-semibold mb-4 text-secondary">{t('contact')}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>Al Ain, UAE</li>
+              <li>{t('address')}</li>
               <li>+971 50 123 4567</li>
               <li>info@mileagerentas.com</li>
             </ul>

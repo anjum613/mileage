@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Car {
+  id            Int      @id @default(autoincrement())
+  name          String
+  model         String
+  year          Int
+  price         Float
+  dailyPrice    Float
+  discountPrice Float?
+  offerTag      String? // For special offers like "Eid Offer", "New Year Deal"
+  img           String
+  desc          String
+  features      String[]
+  transmission  String
+  seats         Int
+  fuelType      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  isOriginal    Boolean  @default(false)
+  isAvailable   Boolean  @default(true)
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+}
