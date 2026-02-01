@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import SignOutButton from "@/components/SignOutButton";
 import Image from "next/image";
+import { Home } from "lucide-react";
 
 // Force dynamic rendering to ensure fresh data
 export const dynamic = 'force-dynamic';
@@ -21,9 +22,37 @@ export default async function AdminDashboard() {
     return (
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-                    <div className="flex gap-4">
+                <div className="mb-8">
+                    {/* Mobile layout: home icon left, title center, buttons right */}
+                    <div className="flex sm:hidden items-center justify-center relative mb-4">
+                        <Button asChild variant="ghost" size="sm" className="absolute left-0">
+                            <Link href="/">
+                                <Home className="w-5 h-5" />
+                            </Link>
+                        </Button>
+                        <h1 className="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
+                    </div>
+
+                    {/* Desktop layout: normal flow */}
+                    <div className="hidden sm:flex justify-between items-center">
+                        <div className="flex items-center gap-4">
+                            <Button asChild variant="ghost" size="sm">
+                                <Link href="/">
+                                    <Home className="w-5 h-5" />
+                                </Link>
+                            </Button>
+                            <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
+                        </div>
+                        <div className="flex gap-4">
+                            <Button asChild>
+                                <Link href="/admin/cars/new">Add New Car</Link>
+                            </Button>
+                            <SignOutButton />
+                        </div>
+                    </div>
+
+                    {/* Mobile buttons row */}
+                    <div className="flex sm:hidden gap-4 justify-end">
                         <Button asChild>
                             <Link href="/admin/cars/new">Add New Car</Link>
                         </Button>

@@ -73,7 +73,12 @@ export default function AddCarPage() {
     return (
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow">
-                <h1 className="text-2xl font-bold mb-6">Add New Car</h1>
+                <div className="mb-6">
+                    <Button variant="ghost" size="sm" onClick={() => router.push('/admin/dashboard')} className="mb-3 -ml-2">
+                        ← Dashboard
+                    </Button>
+                    <h1 className="text-2xl font-bold text-center">Add New Car</h1>
+                </div>
 
                 {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
 
