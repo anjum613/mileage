@@ -6,9 +6,9 @@ const prisma = new PrismaClient();
 async function main() {
     // Add all the admins you want here
     const admins = [
-        { email: 'mileagealain@gmail.com', password: 'mileage@1003' },
-        { email: 'anjumasiya613@gmail.com', password: 'mileage@1003' },
-        { email: 'bijusalam75@gmail.com', password: 'mileage@1003' },       // { email: 'manager@mileagerentacar.ae', password: 'securePassword123' },
+        { email: 'mileagealain@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },
+        { email: 'anjumasiya613@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },
+        { email: 'bijusalam75@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },       // { email: 'manager@mileagerentacar.ae', password: 'securePassword123' },
     ];
 
     for (const user of admins) {
