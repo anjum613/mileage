@@ -9,7 +9,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { createCar } from '@/app/actions/car'; // Fixed import
+import { createCar } from '@/app/actions/car';
+import { useUploadThing } from '@/lib/uploadthing';
+import Image from 'next/image';
 
 const carSchema = z.object({
     name: z.string().min(1, "Name is required"),
@@ -32,8 +34,13 @@ export default function AddCarPage() {
     const router = useRouter();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [uploadMethod, setUploadMethod] = useState<'url' | 'upload'>('url');
+    const [imagePreview, setImagePreview] = useState<string>('');
+    const [uploading, setUploading] = useState(false);
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { startUpload } = useUploadThing("imageUploader");
+
+    const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm({
         resolver: zodResolver(carSchema),
         defaultValues: {
             transmission: "Auto" as const, // Fix literal type
@@ -42,6 +49,26 @@ export default function AddCarPage() {
             year: 2024,
         }
     });
+
+    const imgValue = watch('img');
+
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setUploading(true);
+        try {
+            const res = await startUpload([file]);
+            if (res && res[0]) {
+                setValue('img', res[0].url);
+                setImagePreview(res[0].url);
+            }
+        } catch (err) {
+            setError('Failed to upload image');
+        } finally {
+            setUploading(false);
+        }
+    };
 
     const onSubmit = async (data: CarFormValues) => {
         setLoading(true);
@@ -73,11 +100,11 @@ export default function AddCarPage() {
     return (
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow">
-                <div className="mb-6">
-                    <Button variant="ghost" size="sm" onClick={() => router.push('/admin/dashboard')} className="mb-3 -ml-2">
+                <div className="mb-6 flex items-center justify-center relative">
+                    <Button variant="ghost" size="sm" onClick={() => router.push('/admin/dashboard')} className="absolute left-0">
                         ← Dashboard
                     </Button>
-                    <h1 className="text-2xl font-bold text-center">Add New Car</h1>
+                    <h1 className="text-2xl font-bold">Add New Car</h1>
                 </div>
 
                 {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
@@ -114,9 +141,62 @@ export default function AddCarPage() {
                     </div>
 
                     <div>
-                        <Label>Image URL (Temporary)</Label>
-                        <Input {...register('img')} className="mt-1" placeholder="https://..." />
-                        {errors.img && <p className="text-red-500 text-sm">{errors.img.message}</p>}
+                        <div className="flex items-center justify-between mb-2">
+                            <Label>Car Image</Label>
+                            <div className="flex gap-2">
+                                <Button
+                                    type="button"
+                                    size="sm"
+                                    variant={uploadMethod === 'url' ? 'default' : 'outline'}
+                                    onClick={() => setUploadMethod('url')}
+                                >
+                                    URL
+                                </Button>
+                                <Button
+                                    type="button"
+                                    size="sm"
+                                    variant={uploadMethod === 'upload' ? 'default' : 'outline'}
+                                    onClick={() => setUploadMethod('upload')}
+                                >
+                                    Upload
+                                </Button>
+                            </div>
+                        </div>
+
+                        {uploadMethod === 'url' ? (
+                            <>
+                                <Input
+                                    {...register('img')}
+                                    className="mt-1"
+                                    placeholder="https://example.com/car-image.jpg"
+                                    onChange={(e) => setImagePreview(e.target.value)}
+                                />
+                                {errors.img && <p className="text-red-500 text-sm">{errors.img.message}</p>}
+                            </>
+                        ) : (
+                            <>
+                                <Input
+                                    type="file"
+                                    accept="image/*"
+                                    className="mt-1"
+                                    onChange={handleFileUpload}
+                                    disabled={uploading}
+                                />
+                                {uploading && <p className="text-blue-500 text-sm mt-1">Uploading...</p>}
+                                {errors.img && <p className="text-red-500 text-sm">{errors.img.message}</p>}
+                            </>
+                        )}
+
+                        {(imgValue || imagePreview) && (
+                            <div className="mt-4 relative h-48 w-full border rounded">
+                                <Image
+                                    src={imgValue || imagePreview}
+                                    alt="Preview"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        )}
                     </div>
 
                     <div>

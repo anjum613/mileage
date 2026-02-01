@@ -9,8 +9,26 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'utfs.io', // Uploadthing
+      },
+      {
+        protocol: 'https',
+        hostname: 'uploadthing.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.supabase.co', // Supabase storage
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
       },
     ],
   },
