@@ -15,7 +15,7 @@ export default function Hero() {
     // Restoring original height and layout
     // 1. Changed h-[85vh] to h-[55vh] for mobile (md:h-[85vh] for desktop)
     // 2. Changed min-h-[600px] to min-h-[400px] for mobile (md:min-h-[600px] for desktop)
-    <section id="home" className="relative w-full h-[65vh] md:h-screen min-h-[500px] flex flex-col justify-end">
+    <section id="home" className="relative w-full h-[100dvh] min-h-[500px] flex flex-col justify-end">
 
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
