@@ -1,9 +1,17 @@
 import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
+import createMiddleware from 'next-intl/middleware';
 
-export default NextAuth(authConfig).auth;
+const intlMiddleware = createMiddleware({
+    locales: ['en', 'ar'],
+    defaultLocale: 'en'
+});
+
+export default NextAuth(authConfig).auth((req) => {
+    return intlMiddleware(req);
+});
 
 export const config = {
-    // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+    // Matcher from auth.config + intl requirements
     matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
