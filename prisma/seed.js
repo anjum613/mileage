@@ -4,11 +4,12 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-    // Add all the admins you want here
+    // Use environment variables for seeding to protect privacy in public repo
+    const email = process.env.ADMIN_EMAIL || 'admin@example.com';
+    const password = process.env.ADMIN_PASSWORD || 'securePassword123';
+
     const admins = [
-        { email: 'mileagealain@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },
-        { email: 'anjumasiya613@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },
-        { email: 'bijusalam75@gmail.com', password: process.env.ADMIN_PASSWORD || 'admin123' },       // { email: 'manager@mileagerentacar.ae', password: 'securePassword123' },
+        { email, password }
     ];
 
     for (const user of admins) {
