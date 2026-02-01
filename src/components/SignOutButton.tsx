@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function SignOutButton() {
     return (
-        <Button variant="destructive" onClick={() => signOut({ callbackUrl: "/admin" })}>
+        <Button variant="destructive" onClick={() => signOut({ callbackUrl: "/en/admin" })}>
             Sign Out
         </Button>
     );
