@@ -19,8 +19,6 @@ This is a real production app I developed for a car rental company. The main cha
 **Backend**
 - PostgreSQL (hosted on Supabase)
 - Prisma ORM
-- NextAuth.js for authentication
-- UploadThing for image uploads
 
 **Deployment**
 - Vercel (with automatic deployments)
