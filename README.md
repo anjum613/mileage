@@ -68,9 +68,6 @@ NextAuth.js v5 with credentials provider. Passwords are hashed with bcrypt, and 
 ### Database
 Prisma makes it easy to work with PostgreSQL. Main models are `Car` (inventory) and `Admin` (users). Used Supabase for hosting because it has good free tier and built-in image storage.
 
-### Image Management
-UploadThing handles uploads because dealing with S3 directly was too complex. Images are optimized automatically using Next.js Image component.
-
 ## Running Locally
 
 1. Clone the repo
@@ -148,7 +145,7 @@ The app is deployed on Vercel. Just push to `main` branch and it auto-deploys. E
 ## What I Learned
 
 - How to implement proper i18n with RTL support in Next.js
-- Working with Prisma migrations and seeding
+- Working with Prisma migrations, authentication and seeding
 - NextAuth configuration and middleware patterns
 - Handling file uploads in a serverless environment
 - Building responsive admin interfaces
