@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import SignOutButton from "@/components/SignOutButton";

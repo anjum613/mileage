@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import NextLink from 'next/link';
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
@@ -81,10 +80,10 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem asChild>
-                  <NextLink href="/en/admin/dashboard" className="flex items-center gap-2 cursor-pointer">
+                  <Link href="/admin/dashboard" className="flex items-center gap-2 cursor-pointer">
                     <LayoutDashboard className="w-4 h-4" />
                     Dashboard
-                  </NextLink>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -113,10 +112,10 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem asChild>
-                  <NextLink href="/en/admin/dashboard" className="flex items-center gap-2 cursor-pointer">
+                  <Link href="/admin/dashboard" className="flex items-center gap-2 cursor-pointer">
                     <LayoutDashboard className="w-4 h-4" />
                     Dashboard
-                  </NextLink>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -149,10 +148,10 @@ export default function Header() {
 
           {isLoggedIn && (
             <>
-              <NextLink href="/en/admin/dashboard" className="flex items-center gap-2 py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>
+              <Link href="/admin/dashboard" className="flex items-center gap-2 py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>
                 <LayoutDashboard className="w-4 h-4" />
                 Dashboard
-              </NextLink>
+              </Link>
               <button
                 onClick={() => {
                   setIsOpen(false);

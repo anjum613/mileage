@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
-import NextLink from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default function AdminLogin() {
     const [email, setEmail] = useState('');
@@ -46,19 +46,19 @@ export default function AdminLogin() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-50 relative">
             <div className="absolute top-6 left-6">
-                <NextLink href="/" className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors">
+                <Link href="/" className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Home
-                </NextLink>
+                </Link>
             </div>
             <div className="w-full max-w-md">
                 {/* Logo Section */}
                 <div className="flex justify-center mb-8">
-                    <NextLink href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+                    <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
                         <span className="text-2xl font-bold tracking-tight text-primary">
                             Mileage <span className="font-light opacity-90 text-lg">Rent A Car</span>
                         </span>
-                    </NextLink>
+                    </Link>
                 </div>
 
                 {/* Login Card */}

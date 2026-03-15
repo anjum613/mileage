@@ -2,7 +2,8 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
+import { redirect } from '@/i18n/routing';
+import { getLocale } from 'next-intl/server';
 import { z } from 'zod';
 
 // Define Zod schema for car data
@@ -92,5 +93,6 @@ export async function updateCar(id: number, data: any) {
     revalidatePath('/admin/dashboard');
     revalidatePath(`/admin/cars/${id}/edit`);
     revalidatePath('/');
-    redirect('/admin/dashboard');
+    const locale = await getLocale();
+    redirect({ href: '/admin/dashboard', locale });
 }

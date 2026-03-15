@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import NextLink from 'next/link';
 
 export default function Footer() {
   const t = useTranslations('Navigation');
@@ -27,8 +26,7 @@ export default function Footer() {
               <li><Link href="/" className="hover:text-white transition-colors">{t('home')}</Link></li>
               <li><Link href="/#fleet" className="hover:text-white transition-colors">{t('fleet')}</Link></li>
               <li><Link href="/#why-us" className="hover:text-white transition-colors">{t('about')}</Link></li>
-              <li><Link href="/#contact" className="hover:text-white transition-colors">{t('contact')}</Link></li>
-              <li><NextLink href="/admin" className="hover:text-white transition-colors opacity-70">{t('admin')}</NextLink></li>
+              <li><Link href="/admin" className="hover:text-white transition-colors opacity-70">{t('admin')}</Link></li>
             </ul>
           </div>
 

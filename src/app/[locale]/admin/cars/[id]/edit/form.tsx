@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ArrowLeft, Save, Copy, Loader2 } from 'lucide-react';
-import NextLink from 'next/link';
+import { Link } from '@/i18n/routing';
 import { updateCar, createCar } from '@/app/actions/car';
 
 interface Car {
@@ -113,10 +113,10 @@ export default function EditCarForm({ car }: { car: Car }) {
         <div className="min-h-screen bg-gray-50 p-8">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-6">
-                    <NextLink href="/admin/dashboard" className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary mb-4">
+                    <Link href="/admin/dashboard" className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary mb-4">
                         <ArrowLeft className="w-4 h-4" />
                         Back to Dashboard
-                    </NextLink>
+                    </Link>
                     <h1 className="text-3xl font-bold text-gray-900">Edit Car: {car.name}</h1>
                 </div>
 
