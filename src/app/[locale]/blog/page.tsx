@@ -61,6 +61,7 @@ export default async function BlogPage() {
                             <LanguageSwitcher />
                         </div>
                     </div>
+                    </div>
                 </div>
             </section>
 
