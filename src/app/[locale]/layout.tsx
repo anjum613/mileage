@@ -18,9 +18,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    // Updated for your Brand
-    title: "Mileage Rent A Car | Car Rental in Al Ain",
-    description: "Experience the best car rental service in Al Ain, UAE. Affordable fleet, best rates, and instant booking.",
+    metadataBase: new URL("https://www.mileagecarental.com"),
+    title: {
+        default: "Mileage | Best Car Rental in Al Ain",
+        template: "%s | Mileage Rent A Car"
+    },
+    description: "Rent the best cars in Al Ain, UAE. Affordable daily and monthly rates. Seamless English & Arabic booking.",
+    icons: {
+        icon: "/logo-final.jpg",
+        apple: "/logo-final.jpg",
+    }
 };
 
 export default async function RootLayout({
