@@ -121,7 +121,7 @@ export default function CarCard({ car }: { car: Car }) {
                   {agreed && <CheckIcon className="w-3 h-3 text-white" />}
                 </div>
                 <label className="text-sm text-gray-700 leading-tight cursor-pointer select-none">
-                  I confirm I am a UAE Resident, 24+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
+                  I confirm I am a UAE Resident, 25+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
                 </label>
               </div>
             </div>
