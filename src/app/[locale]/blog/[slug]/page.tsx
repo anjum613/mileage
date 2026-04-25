@@ -4,10 +4,9 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
 
-export default function BlogPost({ params }: { params: { slug: string, locale: string } }) {
-    const t = useTranslations('Blog');
-    const nt = useTranslations('Navigation');
-    const { slug } = params;
+export default async function BlogPost({ params }: { params: Promise<{ slug: string, locale: string }> }) {
+    const t = await useTranslations('Blog');
+    const { slug } = await params;
 
     // Hardcoded content for the 3 posts
     const getPostContent = (slug: string) => {
