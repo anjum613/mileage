@@ -1,13 +1,13 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, ChevronRight, Clock } from 'lucide-react';
 
-export default function BlogPage() {
-    const t = useTranslations('Blog');
-    const nt = useTranslations('Navigation');
+export default async function BlogPage() {
+    const t = await getTranslations('Blog');
+    const nt = await getTranslations('Navigation');
 
     const posts = [
         {

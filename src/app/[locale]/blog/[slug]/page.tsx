@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,7 @@ import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
 export const dynamic = 'force-dynamic';
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string, locale: string }> }) {
-    const t = await useTranslations('Blog');
+    const t = await getTranslations('Blog');
     const { slug } = await params;
 
     const postsMap: Record<string, string> = {
