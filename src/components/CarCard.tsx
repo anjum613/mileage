@@ -12,7 +12,7 @@ export default function CarCard({ car }: { car: Car }) {
   const [showTerms, setShowTerms] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
-  const phoneNumber = "971566181688";
+  const phoneNumber = "971563372777";
   const finalPrice = (car.discountPrice && car.discountPrice > 0) ? car.discountPrice : car.price;
   const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${finalPrice} AED/day`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;

@@ -8,7 +8,7 @@ import { Phone, MessageCircle } from 'lucide-react';
 export default function Hero() {
   const t = useTranslations('Hero');
   const locale = useLocale();
-  const whatsappNumber = "971566181688";
+  const whatsappNumber = "971563372777";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
 
   return (
