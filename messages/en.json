@@ -7,6 +7,7 @@
         "home": "Home",
         "fleet": "Fleet",
         "about": "About Us",
+        "blog": "Blog",
         "contact": "Contact",
         "terms": "T&C",
         "call": "Call Us",
@@ -136,6 +137,25 @@
             "managing": {
                 "title": "Managing Cookies",
                 "content": "You can block cookies by activating the setting on your browser that allows you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies) you may not be able to access all or parts of our site."
+            }
+        }
+    },
+    "Blog": {
+        "title": "Mileage Blog - Tips & Guides for Al Ain",
+        "subtitle": "Discover the best of Al Ain and get expert car rental tips from the local professionals.",
+        "read_more": "Read More",
+        "posts": {
+            "one": {
+                "title": "5 Best Places to Visit in Al Ain with a Rental Car",
+                "excerpt": "From the heights of Jebel Hafeet to the lush Al Ain Oasis, discover where to drive your rental car."
+            },
+            "two": {
+                "title": "Why Renting is Cheaper than Taxis in Al Ain",
+                "excerpt": "Calculate the savings! Learn why a long-term rental is the smartest choice for residents and visitors."
+            },
+            "three": {
+                "title": "Al Ain Driving Guide: 5 Rules You Must Know",
+                "excerpt": "Stay safe and avoid fines with our essential guide to navigating the roads of the Garden City."
             }
         }
     }

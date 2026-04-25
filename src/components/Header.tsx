@@ -61,6 +61,7 @@ export default function Header() {
         <div className="hidden md:flex gap-6 lg:gap-8 items-center">
           <Link href="/#home" className="text-sm font-medium hover:text-secondary transition-colors">{t('home')}</Link>
           <Link href="/#fleet" className="text-sm font-medium hover:text-secondary transition-colors">{t('fleet')}</Link>
+          <Link href="/blog" className="text-sm font-medium hover:text-secondary transition-colors">{t('blog')}</Link>
           <Link href="/#why-us" className="text-sm font-medium hover:text-secondary transition-colors">{t('about')}</Link>
           <Link href="/terms" className="text-sm font-medium hover:text-secondary transition-colors">{t('terms')}</Link>
           <Link href="/#contact" className="text-sm font-medium hover:text-secondary transition-colors">{t('contact')}</Link>
@@ -142,6 +143,7 @@ export default function Header() {
         <div className="md:hidden bg-primary border-t border-primary/20 p-4 space-y-4 shadow-xl">
           <Link href="/" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={handleLogoClick}>{t('home')}</Link>
           <Link href="/#fleet" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('fleet')}</Link>
+          <Link href="/blog" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('blog')}</Link>
           <Link href="/#why-us" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('about')}</Link>
           <Link href="/terms" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('terms')}</Link>
           <Link href="/#contact" className="block py-2 text-primary-foreground/90 hover:text-white font-medium" onClick={() => setIsOpen(false)}>{t('contact')}</Link>
