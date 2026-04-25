@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Share2, Home } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export const dynamic = 'force-dynamic';
@@ -46,15 +46,24 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     return (
         <article className="bg-background pb-24 pt-32">
             <div className="max-w-4xl mx-auto px-6">
-                {/* Back Link & Language Switcher */}
+                {/* Top Navigation Bar */}
                 <div className="flex items-center justify-between mb-8">
-                    <Button asChild variant="ghost" className=" -ml-4 text-primary hover:text-primary/80 group">
-                        <Link href="/blog">
-                            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
-                            {t('back_to_blog')}
-                        </Link>
-                    </Button>
-                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-gray-900 p-1 rounded-lg border border-gray-100 dark:border-gray-800">
+                    <div className="flex items-center gap-2">
+                        <Button asChild variant="ghost" size="icon" className="text-primary hover:text-primary/80" title="Go to Home">
+                            <Link href="/">
+                                <Home className="w-5 h-5" />
+                            </Link>
+                        </Button>
+                        <div className="w-px h-6 bg-gray-200 dark:bg-gray-800 mx-1" />
+                        <Button asChild variant="ghost" className="text-primary hover:text-primary/80 group">
+                            <Link href="/blog">
+                                <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
+                                {t('back_to_blog')}
+                            </Link>
+                        </Button>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-gray-900 p-1 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
                         <span className="text-xs text-muted-foreground px-2 font-medium">Language:</span>
                         <LanguageSwitcher />
                     </div>
@@ -66,10 +75,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {postDate}</span>
                         <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {readTime}</span>
                     </div>
-                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
+                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-8">
                         {t(`posts.${postId}.title`)}
                     </h1>
-                    <div className="relative h-[300px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                    <div className="relative h-[300px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800">
                         <Image
                             src={postImage}
                             alt="Blog cover"
@@ -101,23 +110,23 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <p className="mb-4 leading-relaxed">{t(`posts.${postId}.section3_text`)}</p>
                     </section>
 
-                    {/* Conditional Section 4 or Quote/Footer */}
+                    {/* Uniform Styling for Footer/Quotes */}
                     {postId === 'one' && (
                         <>
                             <section className="mb-10">
                                 <h3 className="text-2xl font-bold text-primary mb-4">{t(`posts.one.section4_title`)}</h3>
                                 <p className="mb-4 leading-relaxed">{t(`posts.one.section4_text`)}</p>
                             </section>
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-l-4 border-primary italic text-gray-700 dark:text-gray-300 my-10">
+                            <p className="italic text-gray-600 dark:text-gray-400 mt-10 border-t pt-8">
                                 "{t('posts.one.quote')}"
-                            </div>
+                            </p>
                         </>
                     )}
 
                     {postId === 'two' && (
-                        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border-l-4 border-green-600 text-gray-700 dark:text-gray-300 my-10 font-bold">
+                        <p className="text-gray-600 dark:text-gray-400 italic mt-10 border-t pt-8 font-medium">
                             {t('posts.two.footer')}
-                        </div>
+                        </p>
                     )}
 
                     {postId === 'three' && (
@@ -126,7 +135,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 <h3 className="text-2xl font-bold text-primary mb-4">{t(`posts.three.section4_title`)}</h3>
                                 <p className="mb-4 leading-relaxed">{t(`posts.three.section4_text`)}</p>
                             </section>
-                            <p className="text-gray-600 dark:text-gray-400 italic mt-10">
+                            <p className="text-gray-600 dark:text-gray-400 italic mt-10 border-t pt-8">
                                 {t('posts.three.footer')}
                             </p>
                         </>

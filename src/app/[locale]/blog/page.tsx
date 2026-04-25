@@ -3,7 +3,7 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, ChevronRight, Clock } from 'lucide-react';
+import { Calendar, ChevronRight, Clock, Home } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default async function BlogPage() {
@@ -37,8 +37,18 @@ export default async function BlogPage() {
     return (
         <div className="bg-background">
             {/* Hero Section */}
-            <section className="bg-primary py-16 md:py-24">
-                <div className="max-w-7xl mx-auto px-6 text-center">
+            <section className="bg-primary py-16 md:py-20 relative">
+                <div className="max-w-7xl mx-auto px-6">
+                    {/* Home Link */}
+                    <div className="absolute top-6 left-6">
+                        <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10" title="Go to Home">
+                            <Link href="/">
+                                <Home className="w-5 h-5" />
+                            </Link>
+                        </Button>
+                    </div>
+
+                    <div className="text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {t('title')}
                     </h1>
