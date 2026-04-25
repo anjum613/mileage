@@ -3,6 +3,7 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,13 +46,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     return (
         <article className="bg-background pb-24 pt-32">
             <div className="max-w-4xl mx-auto px-6">
-                {/* Back Link - MORE PROMINENT */}
-                <Button asChild variant="ghost" className="mb-8 -ml-4 text-primary hover:text-primary/80 group">
-                    <Link href="/blog">
-                        <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
-                        {t('back_to_blog')}
-                    </Link>
-                </Button>
+                {/* Back Link & Language Switcher */}
+                <div className="flex items-center justify-between mb-8">
+                    <Button asChild variant="ghost" className=" -ml-4 text-primary hover:text-primary/80 group">
+                        <Link href="/blog">
+                            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
+                            {t('back_to_blog')}
+                        </Link>
+                    </Button>
+                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-gray-900 p-1 rounded-lg border border-gray-100 dark:border-gray-800">
+                        <span className="text-xs text-muted-foreground px-2 font-medium">Language:</span>
+                        <LanguageSwitcher />
+                    </div>
+                </div>
 
                 {/* Header */}
                 <header className="mb-12">

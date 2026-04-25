@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, ChevronRight, Clock } from 'lucide-react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default async function BlogPage() {
     const t = await getTranslations('Blog');
@@ -41,9 +42,15 @@ export default async function BlogPage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {t('title')}
                     </h1>
-                    <p className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto">
+                    <p className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto mb-8">
                         {t('subtitle')}
                     </p>
+                    <div className="flex justify-center">
+                        <div className="bg-white/10 backdrop-blur-sm p-1 rounded-lg border border-white/20 flex items-center gap-2">
+                            <span className="text-white/70 text-sm px-3 font-medium">Change Language:</span>
+                            <LanguageSwitcher />
+                        </div>
+                    </div>
                 </div>
             </section>
 
