@@ -73,12 +73,17 @@
                     "list": {
                         "police": "Police Report: In case of any accident or damage, a valid Police Report is mandatory. Without it, the customer is liable for all repair costs.",
                         "excess": "Excess/Deductible: A basic deductible of AED 1,000 applies to all claims, plus a 10% Ancillary fixed excess.",
+                        "responsibility": "Accidents: The customer is held fully responsible for the vehicle and all related costs in the event of an accident.",
                         "sports": "Sports/Coupe Cars: A 20% Ancillary excess applies to high-performance and sports vehicles."
                     }
                 },
                 "four": {
                     "title": "4. Payments & Deposits",
-                    "content": "A security deposit is required via Credit Card. Rental fees must be paid in advance. Traffic fines and Salik (toll) charges are the responsibility of the renter."
+                    "content": "Full rental payment for the entire duration must be made in advance at the time of booking. A security deposit is required and will be refunded 15 days after vehicle return."
+                },
+                "five": {
+                    "title": "5. Delivery & Collection",
+                    "content": "Home delivery and vehicle drop-off are available within Al Ain. This service is subject to an additional agreed premium/charge."
                 }
             }
         },
