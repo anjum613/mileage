@@ -53,14 +53,16 @@ export default function BlogPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {posts.map((post) => (
                             <Card key={post.id} className="overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col h-full bg-blue-50/30">
-                                <div className="relative h-56 w-full overflow-hidden">
-                                    <Image
-                                        src={post.image}
-                                        alt={t(`posts.${post.id}.title`)}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                </div>
+                                <Link href={`/blog/${post.slug}`} className="cursor-pointer">
+                                    <div className="relative h-56 w-full overflow-hidden">
+                                        <Image
+                                            src={post.image}
+                                            alt={t(`posts.${post.id}.title`)}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    </div>
+                                </Link>
                                 <CardHeader className="pb-4">
                                     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
                                         <div className="flex items-center gap-1">
@@ -72,9 +74,11 @@ export default function BlogPage() {
                                             {post.readTime}
                                         </div>
                                     </div>
-                                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                                        {t(`posts.${post.id}.title`)}
-                                    </CardTitle>
+                                    <Link href={`/blog/${post.slug}`} className="group-hover:text-primary transition-colors">
+                                        <CardTitle className="text-xl font-bold">
+                                            {t(`posts.${post.id}.title`)}
+                                        </CardTitle>
+                                    </Link>
                                 </CardHeader>
                                 <CardContent className="flex-grow">
                                     <p className="text-muted-foreground text-sm line-clamp-3">
