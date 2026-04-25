@@ -99,14 +99,14 @@ export default function CarCard({ car }: { car: Car }) {
 
             <div className="p-6 overflow-y-auto">
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800 mb-4">
-                <strong>Notice:</strong> We currently rent to <strong>UAE Residents only</strong> (Emirates ID Required).
+                <strong>Notice:</strong> We rent to <strong>UAE Residents only</strong>. Original Emirates ID & UAE License are mandatory.
               </div>
 
               <h4 className="font-bold text-gray-900 mb-2">Important Rules:</h4>
               <div className="text-sm text-gray-600 space-y-3 mb-6 border p-3 rounded-md bg-gray-50 h-48 overflow-y-scroll">
                 <p>1. <strong>Deposit:</strong> AED 1,500 security deposit (Refundable after 15 days).</p>
                 <p>2. <strong>Mileage:</strong> 400 km limit per day. (Extra: AED 1/km).</p>
-                <p>3. <strong>Insurance Excess:</strong> AED 1,500 for standard cars if accident is your fault.</p>
+                <p>3. <strong>Insurance Excess:</strong> AED 1,000 + 10% Ancillary fee for all claims.</p>
                 <p>4. <strong>Geographical Limits:</strong> UAE Use Only. No border crossing.</p>
                 <p>5. <strong>Driver:</strong> Only the contract holder is allowed to drive.</p>
                 <p>6. <strong>Tolls & Fines:</strong> Customer pays all Salik (AED 4) and Traffic Fines.</p>
@@ -121,7 +121,7 @@ export default function CarCard({ car }: { car: Car }) {
                   {agreed && <CheckIcon className="w-3 h-3 text-white" />}
                 </div>
                 <label className="text-sm text-gray-700 leading-tight cursor-pointer select-none">
-                  I confirm I am a UAE Resident, 25+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
+                  I confirm I am a UAE Resident, 24+ years old, and I agree to the <a href="/terms" target="_blank" className="text-blue-600 underline font-semibold" onClick={(e) => e.stopPropagation()}>Terms & Conditions</a>.
                 </label>
               </div>
             </div>

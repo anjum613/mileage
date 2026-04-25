@@ -54,10 +54,10 @@
                 "one": {
                     "title": "1. Driver Requirements",
                     "list": {
-                        "age": "Minimum Age: Drivers must be between 23 and 65 years old.",
-                        "license": "License: A valid UAE driving license held for at least 6 months is required.",
-                        "international": "International Drivers: Tourists with European/American licenses may drive subject to RTA regulations.",
-                        "documents": "Documents: Original Emirates ID (for residents) or Passport with Visa Entry Stamp (for tourists) is mandatory."
+                        "age": "Minimum Age: Drivers must be 24 years or older.",
+                        "license": "License: A valid UAE driving license is mandatory. International or foreign licenses are not accepted.",
+                        "international": "Note: We strictly rent to UAE Residents only.",
+                        "documents": "Documents: Original Emirates ID is mandatory. We do not rent to tourists or holders of visit visas."
                     }
                 },
                 "two": {
@@ -72,8 +72,8 @@
                     "title": "3. Insurance & Accidents",
                     "list": {
                         "police": "Police Report: In case of any accident or damage, a valid Police Report is mandatory. Without it, the customer is liable for all repair costs.",
-                        "excess": "Excess/Deductible: If the accident is the driver's fault, an insurance excess fee applies (standard AED 1,000 for saloons, higher for SUVs/Sports cars).",
-                        "sports": "Sports/Coupe Cars: Higher excess fees (20% additional) apply to high-performance vehicles."
+                        "excess": "Excess/Deductible: A basic deductible of AED 1,000 applies to all claims, plus a 10% Ancillary fixed excess.",
+                        "sports": "Sports/Coupe Cars: A 20% Ancillary excess applies to high-performance and sports vehicles."
                     }
                 },
                 "four": {
