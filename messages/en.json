@@ -144,18 +144,50 @@
         "title": "Mileage Blog - Tips & Guides for Al Ain",
         "subtitle": "Discover the best of Al Ain and get expert car rental tips from the local professionals.",
         "read_more": "Read More",
+        "back_to_blog": "Back to Blog",
+        "share": "Share this article",
+        "share_title": "Share",
+        "rent_now": "Rent a Car Now",
         "posts": {
             "one": {
                 "title": "5 Best Places to Visit in Al Ain with a Rental Car",
-                "excerpt": "From the heights of Jebel Hafeet to the lush Al Ain Oasis, discover where to drive your rental car."
+                "excerpt": "From the heights of Jebel Hafeet to the lush Al Ain Oasis, discover where to drive your rental car.",
+                "intro": "If you’ve got a car and a free afternoon in Al Ain, you’re in luck. Most people just see the mall, but the real soul of the city is in the spots you have to drive to.",
+                "section1_title": "1. The Jebel Hafeet Drive (Sunset is a must)",
+                "section1_text": "It’s not just about the view at the top. The drive itself is one of the best in the UAE. But here’s a tip from us: don’t just race to the top. There are several 'viewing spots' on the way up where you can pull over, have some tea, and watch the city lights come on. If you go on a weekday, it gets busy, so try a weekday if you want the road to yourself.",
+                "section2_title": "2. Green Mubazzarah (Hot Springs)",
+                "section2_text": "Right at the bottom of the mountain. It’s a huge green park with natural hot water springs. It’s the perfect spot for a BBQ. We always tell our customers to take a rental car here because carrying BBQ gear and chairs in a taxi is a nightmare. Plus, you can soak your feet in the warm water after the mountain drive.",
+                "section3_title": "3. Al Ain Oasis (The Back Entrance)",
+                "section3_text": "Everyone goes to the main gate near the museum. But if you have a car, drive around to the smaller gates. It’s much quieter, and you can see the real farming side of the oasis. It’s like stepping back in time—completely quiet, shaded by thousands of palms, and much cooler than the rest of the city.",
+                "section4_title": "4. Qasr Al Muwaiji",
+                "section4_text": "This is one of the most beautiful forts in the country. It’s where Sheikh Khalifa was born. It’s got a really cool glass-walled museum inside a historic fort. It’s right in the middle of the city, so it’s an easy 10-minute drive from almost anywhere.",
+                "quote": "Our favorite route? Start at the Oasis in the morning, grab lunch near Al Ain Mall, and finish the day at the top of Jebel Hafeet for the sunset."
             },
             "two": {
                 "title": "Why Renting is Cheaper than Taxis in Al Ain",
-                "excerpt": "Calculate the savings! Learn why a long-term rental is the smartest choice for residents and visitors."
+                "excerpt": "Calculate the savings! Learn why a long-term rental is the smartest choice for residents and visitors.",
+                "intro": "Let's be honest about taxis in Al Ain: they're great for a quick one-off trip, but if you're living here or visiting for more than a day, they'll eat your budget alive.",
+                "section1_title": "Doing the Math",
+                "section1_text": "A typical trip from somewhere like Zakher to Hili can easily cost you 40-50 AED depending on traffic. If you do that twice a day, you’ve already spent 100 AED. At Mileage, you can rent a clean, reliable car for around 70-90 AED a day. You save money, and you don’t have to wait outside in the 45-degree heat for a driver to show up.",
+                "section2_title": "The 'Family' Factor",
+                "section2_text": "If you have kids, car seats, and shopping bags, taxis are a struggle. Having your own rental means you can leave the strollers in the trunk and go from the grocery store to the park without any stress. Plus, you control the AC—no more arguing about how cold the car should be!",
+                "section3_title": "Monthly Savings",
+                "section3_text": "For residents, our monthly rates are even better. When you factor in the cost of insurance, maintenance, and registration of owning a car, renting monthly is often cheaper and much less headache. If the car has a problem, we just swap it for you. No garage visits, no paperwork.",
+                "footer": "Bottom Line: If you're making more than two trips a day, stop calling taxis. Give us a message on WhatsApp and we'll get you a car that saves you money."
             },
             "three": {
                 "title": "Al Ain Driving Guide: 5 Rules You Must Know",
-                "excerpt": "Stay safe and avoid fines with our essential guide to navigating the roads of the Garden City."
+                "excerpt": "Stay safe and avoid fines with our essential guide to navigating the roads of the Garden City.",
+                "intro": "People say Al Ain is the 'easiest' city to drive in the UAE, and they're right. But we have a few local quirks that catch people out. Here's how to drive like a local:",
+                "section1_title": "Mastering the Roundabouts",
+                "section1_text": "Al Ain loves roundabouts. The big rule: if you're in the inner lane, you have the priority to exit, but please use your indicators. People here are generally polite, but at the Clock Tower or the busy Hili roundabouts, you need to be confident. If you miss your exit, just go around again—don't try to stop!",
+                "section2_title": "Speed Cameras (They're Everywhere)",
+                "section2_text": "On roads like Khalifa Bin Zayed St, the cameras are very well hidden. In Al Ain, we don't have the '20km buffer' like some other emirates used to. If the sign says 80, stay at 80. Our rental cars are all calibrated to show your true speed, so trust the dashboard.",
+                "section3_title": "Parking is Actually Free (Mostly)",
+                "section3_text": "One of the best things about Al Ain is that parking is much easier to find than in Dubai. Most residential areas and small shops have free parking right in front. Just make sure you don't park in a way that blocks the sidewalk—the fines for that are surprisingly high.",
+                "section4_title": "The 'Flash' Rule",
+                "section4_text": "If someone behind you flashes their high beams, they want to pass. Even if you're at the speed limit, the local custom is to safely move to the right lane and let them go. It keeps the traffic flowing and keeps everyone happy.",
+                "footer": "Stay safe, enjoy the wide roads, and if you ever get lost, just look for Jebel Hafeet—it's the best landmark we've got!"
             }
         }
     }
