@@ -20,10 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.mileagecarental.com"),
     title: {
-        default: "Mileage | Best Car Rental in Al Ain",
+        default: "Mileage | Affordable Car Rental in Al Ain",
         template: "%s | Mileage Rent A Car"
     },
-    description: "Rent the best cars in Al Ain, UAE. Affordable daily and monthly rates. Seamless English & Arabic booking.",
+    description: "Rent economical cars in Al Ain, UAE. Affordable daily and monthly rates. Seamless English & Arabic booking.",
     icons: {
         icon: "/logo-final.jpg",
         apple: "/logo-final.jpg",
