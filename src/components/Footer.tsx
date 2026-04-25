@@ -46,7 +46,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-secondary">{t('contact')}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li>{t('address')}</li>
-              <li>+971 56 337 2777</li>
+              <li>+971 56 618 1688</li>
               <li>mileagealain@gmail.com</li>
             </ul>
           </div>

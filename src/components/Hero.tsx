@@ -9,6 +9,7 @@ export default function Hero() {
   const t = useTranslations('Hero');
   const locale = useLocale();
   const whatsappNumber = "971563372777";
+  const callNumber = "971566181688";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
 
   return (
@@ -71,7 +72,7 @@ export default function Hero() {
               variant="secondary"
               className="font-bold text-lg h-12 shadow-lg w-full md:w-auto"
             >
-              <a href={`tel:+${whatsappNumber}`}>
+              <a href={`tel:+${callNumber}`}>
                 <Phone className={`h-5 w-5 ${locale === 'ar' ? 'ml-2' : 'mr-2'}`} /> {t('call')}
               </a>
             </Button>
