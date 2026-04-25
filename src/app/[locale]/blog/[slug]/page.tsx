@@ -44,7 +44,7 @@ export default function BlogPost({ params }: { params: { slug: string, locale: s
                     id: 'two',
                     date: 'April 20, 2026',
                     readTime: '4 min read',
-                    image: '/cars/sunny.jpg',
+                    image: '/cars/sunny-2024.png',
                     content: (
                         <div className="space-y-6">
                             <p className="text-lg leading-relaxed">Many visitors and new residents wonder: should I rely on taxis or rent a car? In Al Ain, the answer is almost always to rent. Here's why:</p>
@@ -65,7 +65,7 @@ export default function BlogPost({ params }: { params: { slug: string, locale: s
                     id: 'three',
                     date: 'April 15, 2026',
                     readTime: '6 min read',
-                    image: '/cars/yaris.jpg',
+                    image: '/cars/corolla-2024.jpg',
                     content: (
                         <div className="space-y-6">
                             <p className="text-lg leading-relaxed">Driving in Al Ain is generally smoother than in Dubai or Abu Dhabi, but there are local rules you must follow to stay safe and avoid fines.</p>

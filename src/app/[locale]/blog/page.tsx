@@ -20,14 +20,14 @@ export default function BlogPage() {
         {
             id: 'two',
             slug: 'renting-vs-taxis-al-ain',
-            image: '/cars/sunny.jpg', // I'll assume you have car images in /cars/
+            image: '/cars/sunny-2024.png',
             date: 'April 20, 2026',
             readTime: '4 min read'
         },
         {
             id: 'three',
             slug: 'al-ain-driving-guide',
-            image: '/cars/yaris.jpg',
+            image: '/cars/corolla-2024.jpg',
             date: 'April 15, 2026',
             readTime: '6 min read'
         }
