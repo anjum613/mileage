@@ -13,21 +13,21 @@ export default function BlogPage() {
         {
             id: 'one',
             slug: 'best-places-to-visit-al-ain',
-            image: '/blog/jebel-hafeet.png',
+            image: '/blog/jebel-hafeet.jpg',
             date: 'April 25, 2026',
             readTime: '5 min read'
         },
         {
             id: 'two',
             slug: 'renting-vs-taxis-al-ain',
-            image: '/blog/al-ain-fort.png',
+            image: '/blog/al-ain-fort.jpg',
             date: 'April 20, 2026',
             readTime: '4 min read'
         },
         {
             id: 'three',
             slug: 'al-ain-driving-guide',
-            image: '/blog/al-ain-zoo.png',
+            image: '/blog/al-ain-zoo.jpg',
             date: 'April 15, 2026',
             readTime: '6 min read'
         }

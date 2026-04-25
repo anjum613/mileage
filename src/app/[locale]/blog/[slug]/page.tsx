@@ -16,7 +16,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     id: 'one',
                     date: 'April 25, 2026',
                     readTime: '5 min read',
-                    image: '/blog/jebel-hafeet.png',
+                    image: '/blog/jebel-hafeet.jpg',
                     content: (
                         <div className="space-y-6">
                             <p className="text-lg leading-relaxed">Al Ain, known as the "Garden City," is full of hidden gems that are best explored with the freedom of a rental car. Here are the top 5 spots you shouldn't miss:</p>
@@ -43,7 +43,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     id: 'two',
                     date: 'April 20, 2026',
                     readTime: '4 min read',
-                    image: '/blog/al-ain-fort.png',
+                    image: '/blog/al-ain-fort.jpg',
                     content: (
                         <div className="space-y-6">
                             <p className="text-lg leading-relaxed">Many visitors and new residents wonder: should I rely on taxis or rent a car? In Al Ain, the answer is almost always to rent. Here's why:</p>
@@ -64,7 +64,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     id: 'three',
                     date: 'April 15, 2026',
                     readTime: '6 min read',
-                    image: '/blog/al-ain-zoo.png',
+                    image: '/blog/al-ain-zoo.jpg',
                     content: (
                         <div className="space-y-6">
                             <p className="text-lg leading-relaxed">Driving in Al Ain is generally smoother than in Dubai or Abu Dhabi, but there are local rules you must follow to stay safe and avoid fines.</p>
