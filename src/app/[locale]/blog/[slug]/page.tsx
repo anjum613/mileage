@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string, locale: string }> }) {
     const t = await useTranslations('Blog');
     const { slug } = await params;
