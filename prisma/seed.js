@@ -4,6 +4,10 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
+    // Enable Row Level Security (RLS) on tables to secure Supabase REST API exposure
+    await prisma.$executeRawUnsafe(`ALTER TABLE "public"."Admin" ENABLE ROW LEVEL SECURITY;`);
+    await prisma.$executeRawUnsafe(`ALTER TABLE "public"."Car" ENABLE ROW LEVEL SECURITY;`);
+
     // Use environment variables for seeding to protect privacy in public repo
     const email = process.env.ADMIN_EMAIL || 'admin@example.com';
     const password = process.env.ADMIN_PASSWORD || 'securePassword123';
