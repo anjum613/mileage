@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { BUSINESS } from '@/lib/business';
+import { Facebook } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('Navigation');
@@ -50,6 +51,17 @@ export default function Footer() {
               <li><a href={`tel:${BUSINESS.bookingPhoneE164}`} className="hover:text-white transition-colors">{BUSINESS.bookingPhoneDisplay}</a></li>
               <li><a href={`tel:${BUSINESS.contactPhoneE164}`} className="hover:text-white transition-colors">{BUSINESS.contactPhoneDisplay}</a></li>
               <li><a href={`mailto:${BUSINESS.email}`} className="hover:text-white transition-colors">{BUSINESS.email}</a></li>
+              <li>
+                <a
+                  href={BUSINESS.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary-foreground/90 hover:text-white transition-colors"
+                >
+                  <Facebook className="h-4 w-4" aria-hidden="true" />
+                  Facebook
+                </a>
+              </li>
             </ul>
           </div>
 

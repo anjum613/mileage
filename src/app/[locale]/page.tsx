@@ -60,7 +60,7 @@ export default async function Home() {
                             addressCountry: 'AE',
                         },
                         areaServed: 'Al Ain, United Arab Emirates',
-                        sameAs: [BUSINESS.reviewUrl],
+                        sameAs: [BUSINESS.reviewUrl, BUSINESS.facebookUrl],
                     }),
                 }}
             />

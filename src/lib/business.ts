@@ -9,4 +9,5 @@ export const BUSINESS = {
   email: 'mileagealain@gmail.com',
   address: 'Al Ain, United Arab Emirates',
   reviewUrl: 'https://share.google/pDQcPGGuf6erEzik6',
+  facebookUrl: 'https://www.facebook.com/people/Mileage-Rent-A-Car/61593658776558/',
 } as const;
