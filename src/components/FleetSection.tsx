@@ -12,7 +12,7 @@ export default function FleetSection({ cars }: FleetSectionProps) {
   const t = useTranslations('Fleet');
 
   return (
-    <section id="fleet" className="py-24 bg-gray-50">
+    <section id="fleet" className="pb-12 pt-24 md:pb-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
