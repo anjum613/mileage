@@ -51,7 +51,9 @@
         "title": "What our customers say",
         "subtitle": "Read verified Google reviews from customers who rented with Mileage in Al Ain.",
         "empty": "Have you rented from us? Share your experience on Google and help other customers choose with confidence.",
-        "cta": "Leave a review on Google"
+        "cta": "Leave a review on Google",
+        "carousel_label": "Customer reviews",
+        "review": "Review"
     },
     "Legal": {
         "Terms": {

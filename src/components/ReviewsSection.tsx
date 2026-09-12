@@ -1,6 +1,7 @@
 import { ExternalLink, MessageSquareQuote, Star } from 'lucide-react';
 import { BUSINESS } from '@/lib/business';
 import { getTranslations } from 'next-intl/server';
+import ReviewsCarousel, { type ReviewCarouselItem } from '@/components/ReviewsCarousel';
 
 type GoogleReview = {
   name?: string;
@@ -11,6 +12,7 @@ type GoogleReview = {
     displayName?: string;
     uri?: string;
   };
+  publishTime?: string;
 };
 
 type GooglePlace = {
@@ -56,7 +58,10 @@ function stars(rating = 0) {
 export default async function ReviewsSection() {
   const t = await getTranslations('Reviews');
   const place = await getGooglePlace();
-  const reviews = place?.reviews?.filter((review) => review.text?.text).slice(0, 5) ?? [];
+  const reviews = place?.reviews
+    ?.filter((review) => review.text?.text)
+    .sort((first, second) => new Date(second.publishTime || 0).getTime() - new Date(first.publishTime || 0).getTime())
+    .slice(0, 5) ?? [];
   const googleUrl = place?.googleMapsUri || BUSINESS.reviewUrl;
 
   return (
@@ -82,30 +87,7 @@ export default async function ReviewsSection() {
         </div>
 
         {reviews.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <article key={review.name || index} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <span className="flex">{stars(review.rating)}</span>
-                  {review.relativePublishTimeDescription ? (
-                    <span className="text-xs text-muted-foreground">{review.relativePublishTimeDescription}</span>
-                  ) : null}
-                </div>
-                <p className="text-sm leading-7 text-slate-700">{review.text?.text}</p>
-                {review.authorAttribution?.displayName ? (
-                  <p className="mt-5 text-sm font-semibold text-primary">
-                    {review.authorAttribution.uri ? (
-                      <a href={review.authorAttribution.uri} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                        {review.authorAttribution.displayName}
-                      </a>
-                    ) : (
-                      review.authorAttribution.displayName
-                    )}
-                  </p>
-                ) : null}
-              </article>
-            ))}
-          </div>
+          <ReviewsCarousel reviews={reviews as ReviewCarouselItem[]} />
         ) : (
           <div className="mx-auto max-w-2xl rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200">
             <p className="text-slate-700">
