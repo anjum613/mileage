@@ -56,22 +56,25 @@ export default function CarCard({ car }: { car: Car }) {
               <p className="text-sm font-medium tracking-wide text-muted-foreground">{car.model}</p>
               <CardTitle className="text-xl font-bold text-primary mt-1">{car.name}</CardTitle>
             </div>
-            <div className="rounded-xl bg-white/70 px-3 py-2 text-right">
+            <div className="min-w-[118px] shrink-0 rounded-xl bg-white/70 px-3 py-2 text-center">
               {car.discountPrice && car.discountPrice > 0 ? (
                 <>
-                  <span className="block text-xs font-semibold tracking-wider text-muted-foreground">From</span>
+                  <span className="block text-[11px] font-semibold text-muted-foreground">From</span>
                   <span className="block text-xs text-muted-foreground line-through decoration-secondary/70">AED {car.price}</span>
                   <span className="block text-3xl font-black leading-none text-primary">{car.discountPrice}</span>
+                  <span className="mt-1 block text-xs font-medium text-muted-foreground">AED / day</span>
                   {savings > 0 && (
-                    <span className="mt-1 inline-block rounded-full bg-secondary/15 px-2 py-0.5 text-[10px] font-bold text-primary">
+                    <span className="mt-2 block whitespace-nowrap rounded-full bg-secondary/15 px-2 py-1 text-[10px] font-bold text-primary">
                       Save AED {savings}
                     </span>
                   )}
                 </>
               ) : (
-                <span className="block text-2xl font-bold text-primary">{car.price}</span>
+                <>
+                  <span className="block text-2xl font-bold leading-none text-primary">{car.price}</span>
+                  <span className="mt-1 block text-xs font-medium text-muted-foreground">AED / day</span>
+                </>
               )}
-              <span className="text-xs text-muted-foreground font-medium">AED / Day</span>
             </div>
           </div>
         </CardHeader>
