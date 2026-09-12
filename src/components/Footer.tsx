@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { BUSINESS } from '@/lib/business';
 
 export default function Footer() {
   const t = useTranslations('Navigation');
@@ -46,8 +47,9 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-secondary">{t('contact')}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li>{t('address')}</li>
-              <li>+971 56 618 1688</li>
-              <li>mileagealain@gmail.com</li>
+              <li><a href={`tel:${BUSINESS.bookingPhoneE164}`} className="hover:text-white transition-colors">{BUSINESS.bookingPhoneDisplay}</a></li>
+              <li><a href={`tel:${BUSINESS.contactPhoneE164}`} className="hover:text-white transition-colors">{BUSINESS.contactPhoneDisplay}</a></li>
+              <li><a href={`mailto:${BUSINESS.email}`} className="hover:text-white transition-colors">{BUSINESS.email}</a></li>
             </ul>
           </div>
 

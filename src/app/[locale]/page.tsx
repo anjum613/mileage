@@ -1,23 +1,31 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import FleetSection from '@/components/FleetSection';
-import WhyUsSection from '@/components/WhyUsSection';
 import Footer from '@/components/Footer';
+import ReviewsSection from '@/components/ReviewsSection';
 import { prisma } from '@/lib/prisma';
 import { cars as staticCars } from '@/data/cars';
 import type { Car } from '@prisma/client';
+import { BUSINESS } from '@/lib/business';
+import { unstable_cache } from 'next/cache';
+import { Suspense } from 'react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+
+const getAvailableCars = unstable_cache(
+    async () => prisma.car.findMany({
+        where: { isAvailable: true },
+        orderBy: { createdAt: 'desc' },
+    }),
+    ['available-cars'],
+    { revalidate: 60 }
+);
 
 export default async function Home() {
     let cars: Car[] = [];
 
     try {
-        // Attempt to fetch from DB
-        cars = await prisma.car.findMany({
-            where: { isAvailable: true },
-            orderBy: { createdAt: 'desc' }
-        });
+        cars = await getAvailableCars();
     } catch (e) {
         console.warn("Database connection failed, falling back to static data.");
         // Fallback to static data if DB fails
@@ -36,11 +44,37 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen bg-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'AutoRental',
+                        name: BUSINESS.name,
+                        url: BUSINESS.website,
+                        telephone: BUSINESS.bookingPhoneE164,
+                        email: BUSINESS.email,
+                        address: {
+                            '@type': 'PostalAddress',
+                            addressLocality: 'Al Ain',
+                            addressCountry: 'AE',
+                        },
+                        areaServed: 'Al Ain, United Arab Emirates',
+                        sameAs: [BUSINESS.reviewUrl],
+                    }),
+                }}
+            />
             <Header />
             <Hero />
             <FleetSection cars={cars} />
-            <WhyUsSection />
+            <Suspense fallback={<ReviewsFallback />}>
+                <ReviewsSection />
+            </Suspense>
             <Footer />
         </main>
     );
+}
+
+function ReviewsFallback() {
+    return <section id="reviews" className="min-h-80 bg-slate-50 py-24" aria-hidden="true" />;
 }

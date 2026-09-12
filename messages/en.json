@@ -47,6 +47,12 @@
         "easy_title": "Easy Process",
         "easy_desc": "Skip the paperwork. Just message us on WhatsApp and get driving in minutes."
     },
+    "Reviews": {
+        "title": "What our customers say",
+        "subtitle": "Read verified Google reviews from customers who rented with Mileage in Al Ain.",
+        "empty": "Have you rented from us? Share your experience on Google and help other customers choose with confidence.",
+        "cta": "Leave a review on Google"
+    },
     "Legal": {
         "Terms": {
             "title": "Terms and Conditions",

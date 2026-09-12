@@ -15,12 +15,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { BUSINESS } from '@/lib/business';
 
 export default function Header() {
   const t = useTranslations('Navigation');
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const phoneNumber = "971566181688";
+  const phoneNumber = BUSINESS.bookingPhoneDigits;
   const { data: session, status } = useSession();
   const isLoggedIn = status === 'authenticated';
 

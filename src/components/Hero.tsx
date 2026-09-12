@@ -4,12 +4,13 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from 'lucide-react';
+import { BUSINESS } from '@/lib/business';
 
 export default function Hero() {
   const t = useTranslations('Hero');
   const locale = useLocale();
-  const whatsappNumber = "971563372777";
-  const callNumber = "971566181688";
+  const whatsappNumber = BUSINESS.bookingPhoneDigits;
+  const callNumber = BUSINESS.bookingPhoneDigits;
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
 
   return (
@@ -21,9 +22,11 @@ export default function Hero() {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/al-ain.jpg"
+          src="/al-ain.webp"
           alt="Economical car rental in Al Ain"
           fill
+          sizes="100vw"
+          quality={78}
           // Keep object-center so the car stays in the middle
           className="object-cover object-center brightness-[0.85]"
           priority

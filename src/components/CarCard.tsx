@@ -6,48 +6,67 @@ import type { Car } from '@prisma/client';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Fuel, Gauge, Users, X } from 'lucide-react';
+import { Fuel, Gauge, Tag, Users, X } from 'lucide-react';
+import { BUSINESS } from '@/lib/business';
 
 export default function CarCard({ car }: { car: Car }) {
   const [showTerms, setShowTerms] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
-  const phoneNumber = "971563372777";
+  const phoneNumber = BUSINESS.bookingPhoneDigits;
   const finalPrice = (car.discountPrice && car.discountPrice > 0) ? car.discountPrice : car.price;
+  const savings = car.discountPrice && car.discountPrice > 0 ? car.price - car.discountPrice : 0;
   const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${finalPrice} AED/day`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const imageSrc = car.img.startsWith('/cars/')
+    ? car.img.replace('/cars/', '/cars/optimized/').replace(/\.(?:jpe?g|png)$/i, '.webp')
+    : car.img;
 
   return (
     <>
       <Card className="overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 group bg-blue-50/50 flex flex-col h-full">
         <div className="relative h-64 w-full overflow-hidden bg-gray-100">
           <Image
-            src={car.img}
+            src={imageSrc}
             alt={car.name}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            quality={72}
             className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
           />
           <Badge variant="secondary" className="absolute top-4 right-4 font-bold shadow-sm bg-white/90 text-black">
             {car.year}
           </Badge>
           {car.offerTag && (
-            <Badge className="absolute top-4 left-4 font-bold shadow-md bg-red-600 text-white animate-bounce-slow border-2 border-white">
-              {car.offerTag}
-            </Badge>
+            <div className="absolute left-0 top-5 z-10 flex items-center">
+              <div className="flex items-center gap-2 rounded-r-full bg-primary px-4 py-2 text-sm font-extrabold tracking-wide text-white shadow-lg ring-2 ring-white/80">
+                <Tag className="h-4 w-4 text-secondary" aria-hidden="true" />
+                <span>{car.offerTag}</span>
+              </div>
+              <span className="-ml-2 rounded-full bg-secondary px-2.5 py-1 text-[10px] font-black tracking-wider text-white shadow-md">
+                Special
+              </span>
+            </div>
           )}
         </div>
 
         <CardHeader className="pb-2">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{car.model}</p>
+              <p className="text-sm font-medium tracking-wide text-muted-foreground">{car.model}</p>
               <CardTitle className="text-xl font-bold text-primary mt-1">{car.name}</CardTitle>
             </div>
-            <div className="text-right">
+            <div className="rounded-xl bg-white/70 px-3 py-2 text-right">
               {car.discountPrice && car.discountPrice > 0 ? (
                 <>
-                  <span className="block text-sm text-muted-foreground line-through decoration-red-500/50">AED {car.price}</span>
-                  <span className="block text-2xl font-bold text-red-600 animate-pulse">{car.discountPrice}</span>
+                  <span className="block text-xs font-semibold tracking-wider text-muted-foreground">From</span>
+                  <span className="block text-xs text-muted-foreground line-through decoration-secondary/70">AED {car.price}</span>
+                  <span className="block text-3xl font-black leading-none text-primary">{car.discountPrice}</span>
+                  {savings > 0 && (
+                    <span className="mt-1 inline-block rounded-full bg-secondary/15 px-2 py-0.5 text-[10px] font-bold text-primary">
+                      Save AED {savings}
+                    </span>
+                  )}
                 </>
               ) : (
                 <span className="block text-2xl font-bold text-primary">{car.price}</span>
