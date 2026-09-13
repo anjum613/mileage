@@ -11,7 +11,8 @@ export default function Hero() {
   const locale = useLocale();
   const whatsappNumber = BUSINESS.bookingPhoneDigits;
   const callNumber = BUSINESS.bookingPhoneDigits;
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20rent%20a%20car`;
+  const whatsappMessage = `Hi, I'm contacting you through the Mileage website and would like to rent a car. Please reply with:\nName:\nRental dates (pickup and return):\nAge:`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     // Restoring original height and layout

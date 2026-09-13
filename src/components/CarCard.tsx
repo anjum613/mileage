@@ -16,7 +16,7 @@ export default function CarCard({ car }: { car: Car }) {
   const phoneNumber = BUSINESS.bookingPhoneDigits;
   const finalPrice = (car.discountPrice && car.discountPrice > 0) ? car.discountPrice : car.price;
   const savings = car.discountPrice && car.discountPrice > 0 ? car.price - car.discountPrice : 0;
-  const whatsappMessage = `Hi, I'm interested in renting the ${car.name} (${car.model}). I accept the rental terms. Price: ${finalPrice} AED/day`;
+  const whatsappMessage = `Hi, I'm contacting you through the Mileage website. I'm interested in renting the ${car.name} (${car.model}) at ${finalPrice} AED/day. Please reply with:\nName:\nRental dates (pickup and return):\nAge:`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   const imageSrc = car.img.startsWith('/cars/')
     ? car.img.replace('/cars/', '/cars/optimized/').replace(/\.(?:jpe?g|png)$/i, '.webp')
